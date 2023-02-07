@@ -8,6 +8,7 @@ module dev.dronade.taskorca {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
+    requires java.sql;
 
     opens dev.dronade.taskorca to javafx.fxml;
     exports dev.dronade.taskorca;
