@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #535453;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="15.0" layoutY="7.0" prefHeight="46.0" prefWidth="171.0" text="Task Orca" textFill="WHITE">
+         <font>
+            <Font name="Dubai Medium" size="24.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutY="59.0" prefHeight="442.0" prefWidth="700.0" style="-fx-background-color: #121212;">
+         <children>
+            <CubicCurve controlX1="-253.4779510498047" controlX2="98.46371459960938" controlY1="93.0" controlY2="28.0" endX="52.30792236328125" endY="-177.0" fill="DODGERBLUE" layoutX="170.0" layoutY="177.0" startX="-219.6918487548828" startY="-177.0" stroke="BLACK" style="-fx-fill: #f3f3f7;" />
+            <CubicCurve controlX1="189.0179443359375" controlX2="-45.982025146484375" controlY1="-89.0" controlY2="-4.0" endX="-173.98202514648438" endY="84.0" fill="DODGERBLUE" layoutX="494.0" layoutY="358.0" startX="206.0" startY="84.0" stroke="BLACK" style="-fx-fill: #f3f3f7;" />
+            <AnchorPane layoutX="69.0" layoutY="32.0" prefHeight="360.0" prefWidth="564.0" style="-fx-background-color: #b5b6b7;">
+               <children>
+                  <TextField layoutX="47.0" layoutY="68.0" prefHeight="46.0" prefWidth="470.0" promptText="Username">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font></TextField>
+                  <Button layoutX="14.0" layoutY="315.0" mnemonicParsing="false" text="Don't have an account? Sign Up!" textFill="#838282" />
+                  <PasswordField layoutX="47.0" layoutY="145.0" prefHeight="46.0" prefWidth="470.0" promptText="Password">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font></PasswordField>
+               </children>
+            </AnchorPane>
+         </children></AnchorPane>
+   </children>
+</AnchorPane>

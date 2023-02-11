@@ -10,9 +10,8 @@ import java.io.IOException;
 public class TaskOrcaApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(TaskOrcaApplication.class.getResource("welcome-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Task Orca");
+        FXMLLoader fxmlLoader = new FXMLLoader(TaskOrcaApplication.class.getResource("login-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 700, 500);
         stage.setScene(scene);
         stage.show();
     }
