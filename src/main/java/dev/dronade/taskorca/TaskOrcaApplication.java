@@ -13,6 +13,7 @@ public class TaskOrcaApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(TaskOrcaApplication.class.getResource("login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 700, 500);
         stage.setScene(scene);
+        stage.setTitle("Task Orca - Log In");
         stage.show();
     }
 
