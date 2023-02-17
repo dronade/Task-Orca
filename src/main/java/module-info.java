@@ -12,4 +12,6 @@ module dev.dronade.taskorca {
 
     opens dev.dronade.taskorca to javafx.fxml;
     exports dev.dronade.taskorca;
+    exports dev.dronade.taskorca.controller;
+    opens dev.dronade.taskorca.controller to javafx.fxml;
 }
