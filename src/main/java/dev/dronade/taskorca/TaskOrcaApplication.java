@@ -8,8 +8,17 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class TaskOrcaApplication extends Application {
+
+    private final TaskDatabase taskDatabase = new TaskDatabase();
+    private final UsersDatabase userDatabase = new UsersDatabase();
     @Override
     public void start(Stage stage) throws IOException {
+        taskDatabase.createDatabase();
+        taskDatabase.setupDatabase();
+        userDatabase.createDatabase();
+        userDatabase.setupDatabase();
+
+
         FXMLLoader fxmlLoader = new FXMLLoader(TaskOrcaApplication.class.getResource("LoginView.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 700, 500);
         stage.setScene(scene);
