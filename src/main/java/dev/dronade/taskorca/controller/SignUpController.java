@@ -1,6 +1,7 @@
 package dev.dronade.taskorca.controller;
 
 import dev.dronade.taskorca.TaskOrcaApplication;
+import dev.dronade.taskorca.UsersDatabase;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class SignUpController {
 
@@ -41,6 +43,16 @@ public class SignUpController {
             stage.setScene(scene);
             stage.setTitle("Task Orca - Log In");
             stage.showAndWait();
+        });
+
+        UsersDatabase usersDatabase = new UsersDatabase();
+        signUpButton.setOnAction(event -> {
+            try {
+                usersDatabase.signUpUser(signUpUsername.getText(), signUpPassword.getText());
+                System.out.println("user has been signed in");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         });
     }
 

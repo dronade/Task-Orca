@@ -1,6 +1,8 @@
 package dev.dronade.taskorca;
 import java.sql.*;
 
+import static java.sql.DriverManager.getConnection;
+
 /**
  * Class for adding and fetching URLs from a database.
  * @author Emily Canto
@@ -8,18 +10,19 @@ import java.sql.*;
 public class UsersDatabase {
     private static final String DATABASE_FILE = "jdbc:sqlite:users.db";
     private static final String CREATE_TABLE_STATEMENT = "CREATE TABLE IF NOT EXISTS USERS (\n"
-            + "	id integer PRIMARY KEY,\n"
             + "	username text NOT NULL,\n"
             + "	password text\n"
             + ");";
 
-    public UsersDatabase() {}
+    public UsersDatabase() {
+    }
+
     /**
      * Create the database to store Tasks in if it has not been created already.
      */
     public void createDatabase() {
         try {
-            DriverManager.getConnection(DATABASE_FILE); // create a new database if it does not exist already
+            getConnection(DATABASE_FILE); // create a new database if it does not exist already
         } catch (SQLException error) {
             System.err.println("connect" + error.getMessage());
         }
@@ -30,13 +33,24 @@ public class UsersDatabase {
      */
     public void setupDatabase() {
         try {
-            Connection conn = DriverManager.getConnection(DATABASE_FILE);
+            Connection conn = getConnection(DATABASE_FILE);
             Statement statement = conn.createStatement();
             statement.execute(CREATE_TABLE_STATEMENT);
             statement.close();
             conn.close();
         } catch (SQLException error) {
             System.err.println("setup " + error.getMessage());
+        }
+    }
+
+    public void signUpUser(String username, String password) throws SQLException {
+        final String SQL = "INSERT INTO USERS VALUES(?,?)";
+        try (Connection conn = getConnection(DATABASE_FILE); PreparedStatement ps = conn.prepareStatement(SQL);) {
+            ps.setString(1, username);
+            ps.setString(2, password);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }

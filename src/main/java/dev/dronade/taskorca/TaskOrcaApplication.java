@@ -13,11 +13,10 @@ public class TaskOrcaApplication extends Application {
     private final UsersDatabase userDatabase = new UsersDatabase();
     @Override
     public void start(Stage stage) throws IOException {
-        taskDatabase.createDatabase();
-        taskDatabase.setupDatabase();
         userDatabase.createDatabase();
         userDatabase.setupDatabase();
-
+        taskDatabase.createDatabase();
+        taskDatabase.setupDatabase();
 
         FXMLLoader fxmlLoader = new FXMLLoader(TaskOrcaApplication.class.getResource("LoginView.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 700, 500);
