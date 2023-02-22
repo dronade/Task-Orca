@@ -1,4 +1,4 @@
-package dev.dronade.taskorca;
+package dev.dronade.taskorca.database;
 import java.sql.*;
 
 /**
@@ -9,15 +9,13 @@ public class TaskDatabase {
     private static final String DATABASE_FILE = "jdbc:sqlite:tasks.db";
     private static final String CREATE_TABLE_STATEMENT = """
             CREATE TABLE IF NOT EXISTS TASKS (
-            	id integer PRIMARY KEY,
             	user_id integer NOT NULL,
              	title text NOT NULL,
             	details text,
             	due_date text,
-            	created_at text NOT NULL,
-            	FOREIGN KEY(user_id) REFERENCES USERS(id)
+            	created_at text NOT NULL
             );""";
-
+//FOREIGN KEY(user_id) REFERENCES USERS(id)
     public TaskDatabase() {}
     /**
      * Create the database to store Tasks in if it has not been created already.

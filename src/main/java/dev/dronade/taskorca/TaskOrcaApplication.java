@@ -1,5 +1,7 @@
 package dev.dronade.taskorca;
 
+import dev.dronade.taskorca.database.TaskDatabase;
+import dev.dronade.taskorca.database.UsersDatabase;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

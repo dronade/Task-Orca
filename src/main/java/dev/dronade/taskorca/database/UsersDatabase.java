@@ -1,4 +1,6 @@
-package dev.dronade.taskorca;
+package dev.dronade.taskorca.database;
+import dev.dronade.taskorca.model.User;
+
 import java.sql.*;
 
 import static java.sql.DriverManager.getConnection;
@@ -43,11 +45,11 @@ public class UsersDatabase {
         }
     }
 
-    public void signUpUser(String username, String password) throws SQLException {
+    public void signUpUser(User user) throws SQLException {
         final String SQL = "INSERT INTO USERS VALUES(?,?)";
         try (Connection conn = getConnection(DATABASE_FILE); PreparedStatement ps = conn.prepareStatement(SQL);) {
-            ps.setString(1, username);
-            ps.setString(2, password);
+            ps.setString(1, user.getUsername());
+            ps.setString(2, user.getPassword());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

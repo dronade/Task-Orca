@@ -1,7 +1,8 @@
 package dev.dronade.taskorca.controller;
 
 import dev.dronade.taskorca.TaskOrcaApplication;
-import dev.dronade.taskorca.UsersDatabase;
+import dev.dronade.taskorca.database.UsersDatabase;
+import dev.dronade.taskorca.model.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -45,15 +46,26 @@ public class SignUpController {
             stage.showAndWait();
         });
 
-        UsersDatabase usersDatabase = new UsersDatabase();
+
         signUpButton.setOnAction(event -> {
-            try {
-                usersDatabase.signUpUser(signUpUsername.getText(), signUpPassword.getText());
-                System.out.println("user has been signed in");
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            createUser();
         });
+    }
+
+    private void createUser(){
+        UsersDatabase usersDatabase = new UsersDatabase();
+
+        String username = signUpUsername.getText();
+        String password = signUpPassword.getText();
+
+        User user = new User(username, password);
+
+        try {
+            usersDatabase.signUpUser(user);
+            System.out.println("user has been signed up successfully");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }
