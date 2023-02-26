@@ -1,10 +1,12 @@
 package dev.dronade.taskorca.controller;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import dev.dronade.taskorca.TaskOrcaApplication;
+import dev.dronade.taskorca.database.UsersDatabase;
+import dev.dronade.taskorca.model.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -29,11 +31,36 @@ public class LoginController {
     @FXML
     private Button loginButton;
 
+    private UsersDatabase usersDatabase;
+
     @FXML
     void initialize() {
+        usersDatabase = new UsersDatabase();
 
-        String LoginUsername = loginUsername.getText().trim();
-        String LoginPassword = loginPassword.getText().trim();
+        loginButton.setOnAction(actionEvent -> {
+            String LoginUsername = loginUsername.getText().trim();
+            String LoginPassword = loginPassword.getText().trim();
+
+            User user = new User();
+            user.setUsername(LoginUsername);
+            user.setPassword(LoginPassword);
+
+            ResultSet userRow = usersDatabase.getLoggedUser(user);
+            int counter = 0;
+
+            try {
+                while (userRow.next()){
+                    counter ++;
+                    System.out.println("Welcome back " + userRow.getString("username") + "!");
+                }
+                if (counter == 1){
+                    showAddTasks();
+                    System.out.println("user is logged in");
+                }
+            } catch (SQLException exception){
+                exception.printStackTrace();
+            }
+        });
 
         loginSignUpLink.setOnAction(event ->{
             loginSignUpLink.getScene().getWindow().hide();
@@ -49,17 +76,20 @@ public class LoginController {
             stage.setTitle("Task Orca - Sign Up");
             stage.showAndWait();
         });
-
-        loginButton.setOnAction(event -> {
-            if (!LoginUsername.equals("") && (!LoginPassword.equals(""))){
-                loginUser(LoginUsername, LoginPassword);
-            } else {
-                System.out.println("username & password cannot be empty");
-            }
-        });
     }
 
-    private void loginUser(String username, String password){
-        // need to do
+    private void showAddTasks(){
+        loginSignUpLink.getScene().getWindow().hide();
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(TaskOrcaApplication.class.getResource("AddTasksView.fxml"));
+        Scene scene = null;
+        try {
+            scene = new Scene(fxmlLoader.load(), 700, 500);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        stage.setScene(scene);
+        stage.setTitle("Task Orca - Add Tasks");
+        stage.showAndWait();
     }
 }

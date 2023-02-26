@@ -47,12 +47,35 @@ public class UsersDatabase {
 
     public void signUpUser(User user) throws SQLException {
         final String SQL = "INSERT INTO USERS VALUES(?,?)";
-        try (Connection conn = getConnection(DATABASE_FILE); PreparedStatement ps = conn.prepareStatement(SQL);) {
+        try (Connection conn = getConnection(DATABASE_FILE); PreparedStatement ps = conn.prepareStatement(SQL)) {
             ps.setString(1, user.getUsername());
             ps.setString(2, user.getPassword());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public ResultSet getLoggedUser(User user) {
+        ResultSet resultSet = null;
+        if (!user.getUsername().equals("") || !user.getPassword().equals("")) {
+            String query = "SELECT * FROM USERS WHERE " +
+                    "username =? AND password =?";
+            try {
+                Connection conn = getConnection(DATABASE_FILE);
+                PreparedStatement preparedStatement = conn.prepareStatement(query);
+                preparedStatement.setString(1, user.getUsername());
+                preparedStatement.setString(2, user.getPassword());
+
+                resultSet = preparedStatement.executeQuery();
+
+            } catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        } else {
+            System.out.println("Please enter your username & password");
+
+        }
+        return resultSet;
     }
 }

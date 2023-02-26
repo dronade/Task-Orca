@@ -1,5 +1,4 @@
 package dev.dronade.taskorca.controller;
 
-public class DatabaseController {
-
+public class AddTasksFormController {
 }

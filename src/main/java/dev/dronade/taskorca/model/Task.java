@@ -5,7 +5,7 @@ public class Task {
     private long due_date;
     private String title;
     private String details;
-    
+
     public Task(long created_at, long due_date, String title, String details) {
         this.created_at = created_at;
         this.due_date = due_date;
