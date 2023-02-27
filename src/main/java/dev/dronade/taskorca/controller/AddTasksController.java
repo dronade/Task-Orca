@@ -9,8 +9,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class AddTasksController {
+    public static int userId;
 
     @FXML
     private ImageView addTasksButton;
@@ -29,11 +31,22 @@ public class AddTasksController {
 
             try {
                 AnchorPane AddTaskPane =
-                        FXMLLoader.load((TaskOrcaApplication.class.getResource("AddTasksFormView.fxml")));
+                        FXMLLoader.load((Objects.requireNonNull(TaskOrcaApplication.class.getResource("AddTasksFormView.fxml"))));
                 GreyBox.getChildren().setAll(AddTaskPane);
             } catch (IOException exception) {
                 exception.printStackTrace();
             }
         });
+    }
+
+    public void setUserId(int userId) {
+
+        this.userId = userId;
+        System.out.println("User Id is " + this.userId);
+
+    }
+
+    public int getUserId(){
+        return this.userId;
     }
 }

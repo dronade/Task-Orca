@@ -1,4 +1,5 @@
 package dev.dronade.taskorca.database;
+import dev.dronade.taskorca.model.Task;
 import dev.dronade.taskorca.model.User;
 
 import java.sql.*;
@@ -12,6 +13,7 @@ import static java.sql.DriverManager.getConnection;
 public class UsersDatabase {
     private static final String DATABASE_FILE = "jdbc:sqlite:users.db";
     private static final String CREATE_TABLE_STATEMENT = "CREATE TABLE IF NOT EXISTS USERS (\n"
+            + " user_id integer PRIMARY KEY NOT NULL,\n"
             + "	username text NOT NULL,\n"
             + "	password text\n"
             + ");";

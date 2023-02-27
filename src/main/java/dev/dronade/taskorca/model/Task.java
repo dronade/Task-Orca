@@ -1,31 +1,41 @@
 package dev.dronade.taskorca.model;
 
+
+import java.sql.Timestamp;
+
 public class Task {
-    private long created_at;
-    private long due_date;
+    private int userId;
+    private int taskId;
+    private Timestamp created_at;
+    private String due_date;
     private String title;
     private String details;
 
-    public Task(long created_at, long due_date, String title, String details) {
+    public Task(Integer userId, Timestamp created_at, String due_date, String title, String details) {
+        this.userId = userId;
         this.created_at = created_at;
         this.due_date = due_date;
         this.title = title;
         this.details = details;
     }
 
-    public long getCreated_at() {
+    public Task() {
+
+    }
+
+    public Timestamp getCreated_at() {
         return created_at;
     }
 
-    public void setCreated_at(long created_at) {
+    public void setCreated_at(Timestamp created_at) {
         this.created_at = created_at;
     }
 
-    public long getDue_date() {
+    public String getDue_date() {
         return due_date;
     }
 
-    public void setDue_date(long due_date) {
+    public void setDue_date(String due_date) {
         this.due_date = due_date;
     }
 
@@ -43,5 +53,22 @@ public class Task {
 
     public void setDetails(String details) {
         this.details = details;
+    }
+
+    public int getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+
+    public int getTaskId() {
+        return taskId;
+    }
+
+    public void setTaskId(int taskId) {
+        this.taskId = taskId;
     }
 }

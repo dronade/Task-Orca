@@ -1,5 +1,9 @@
 package dev.dronade.taskorca.database;
+import dev.dronade.taskorca.model.Task;
+
 import java.sql.*;
+
+import static java.sql.DriverManager.getConnection;
 
 /**
  * Class for adding and fetching URLs from a database.
@@ -10,6 +14,7 @@ public class TaskDatabase {
     private static final String CREATE_TABLE_STATEMENT = """
             CREATE TABLE IF NOT EXISTS TASKS (
             	user_id integer NOT NULL,
+            	task_id integer NOT NULL,
              	title text NOT NULL,
             	details text,
             	due_date text,
@@ -41,5 +46,26 @@ public class TaskDatabase {
         } catch (SQLException error) {
             System.err.println(error.getMessage());
         }
+    }
+
+    public void insertTask(Task task) {
+
+        String sql = "INSERT INTO TASKS( user_id,"
+                + "created_at, title, details, due_date)"
+                + "VALUES(?,?,?,?,?)";
+
+
+        try (Connection conn = getConnection(DATABASE_FILE); PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, task.getUserId());
+            ps.setTimestamp(2, task.getCreated_at());
+            ps.setString(3, task.getTitle());
+            ps.setString(4, task.getDetails());
+            ps.setString(5, task.getDue_date());
+            ps.executeUpdate();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 }
