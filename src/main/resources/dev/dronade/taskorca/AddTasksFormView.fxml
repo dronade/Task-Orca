@@ -2,21 +2,36 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #535453;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.dronade.taskorca.controller.AddTasksFormController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="412.0" prefWidth="655.0" style="-fx-background-color: #535453;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.dronade.taskorca.controller.AddTasksFormController">
     <children>
-        <Label layoutX="15.0" layoutY="7.0" prefHeight="46.0" prefWidth="171.0" text="Task Orca" textFill="WHITE">
-            <font>
-                <Font name="Dubai Medium" size="24.0" />
-            </font>
-        </Label>
-        <AnchorPane layoutY="59.0" prefHeight="442.0" prefWidth="700.0" style="-fx-background-color: #121212;">
-            <children>
-                <CubicCurve controlX1="-253.4779510498047" controlX2="98.46371459960938" controlY1="93.0" controlY2="28.0" endX="52.30792236328125" endY="-177.0" fill="DODGERBLUE" layoutX="170.0" layoutY="177.0" startX="-219.6918487548828" startY="-177.0" stroke="BLACK" style="-fx-fill: #f3f3f7;" />
-                <CubicCurve controlX1="189.0179443359375" controlX2="-45.982025146484375" controlY1="-89.0" controlY2="-4.0" endX="-173.98202514648438" endY="84.0" fill="DODGERBLUE" layoutX="494.0" layoutY="358.0" startX="206.0" startY="84.0" stroke="BLACK" style="-fx-fill: #f3f3f7;" />
-                <AnchorPane layoutX="18.0" layoutY="17.0" prefHeight="411.0" prefWidth="667.0" style="-fx-background-color: #b5b6b7;" />
-            </children></AnchorPane>
+          <AnchorPane layoutX="-1.0" prefHeight="411.0" prefWidth="669.0" style="-fx-background-color: #b5b6b7;">
+         <children>
+            <TextField fx:id="TaskTitleInput" layoutX="48.0" layoutY="52.0" prefHeight="38.0" prefWidth="254.0" />
+            <TextField fx:id="AdditionalDetailsInput" layoutX="48.0" layoutY="140.0" prefHeight="111.0" prefWidth="567.0" />
+            <DatePicker fx:id="DueDateInput" layoutX="52.0" layoutY="291.0" prefHeight="38.0" prefWidth="143.0" />
+            <Label fx:id="TaskTitleLabel" layoutX="48.0" layoutY="20.0" text="Task Title">
+               <font>
+                  <Font name="Dubai Medium" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="AdditionalDetailsLabel" layoutX="48.0" layoutY="108.0" text="Additional Details">
+               <font>
+                  <Font name="Dubai Medium" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="DueDateLabel" layoutX="51.0" layoutY="259.0" text="Due date">
+               <font>
+                  <Font name="Dubai Medium" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="CreateTaskButton" layoutX="48.0" layoutY="351.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="134.0" text="Create Task">
+               <font>
+                  <Font name="Dubai Medium" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
     </children>
 </AnchorPane>
