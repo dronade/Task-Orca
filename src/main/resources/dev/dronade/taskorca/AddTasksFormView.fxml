@@ -9,7 +9,7 @@
           <AnchorPane layoutX="-1.0" prefHeight="411.0" prefWidth="669.0" style="-fx-background-color: #b5b6b7;">
          <children>
             <TextField fx:id="TaskTitleInput" layoutX="48.0" layoutY="52.0" prefHeight="38.0" prefWidth="254.0" />
-            <TextField fx:id="AdditionalDetailsInput" layoutX="48.0" layoutY="140.0" prefHeight="111.0" prefWidth="567.0" />
+            <TextField fx:id="AdditionalDetailsInput" alignment="TOP_LEFT" layoutX="48.0" layoutY="140.0" prefHeight="111.0" prefWidth="567.0" />
             <DatePicker fx:id="DueDateInput" layoutX="52.0" layoutY="291.0" prefHeight="38.0" prefWidth="143.0" />
             <Label fx:id="TaskTitleLabel" layoutX="48.0" layoutY="20.0" text="Task Title">
                <font>

@@ -13,7 +13,6 @@ import static java.sql.DriverManager.getConnection;
 public class UsersDatabase {
     private static final String DATABASE_FILE = "jdbc:sqlite:users.db";
     private static final String CREATE_TABLE_STATEMENT = "CREATE TABLE IF NOT EXISTS USERS (\n"
-            + " user_id integer PRIMARY KEY NOT NULL,\n"
             + "	username text NOT NULL,\n"
             + "	password text\n"
             + ");";
@@ -49,10 +48,13 @@ public class UsersDatabase {
 
     public void signUpUser(User user) throws SQLException {
         final String SQL = "INSERT INTO USERS VALUES(?,?)";
-        try (Connection conn = getConnection(DATABASE_FILE); PreparedStatement ps = conn.prepareStatement(SQL)) {
+        try {
+            Connection conn = getConnection(DATABASE_FILE); PreparedStatement ps = conn.prepareStatement(SQL);
             ps.setString(1, user.getUsername());
             ps.setString(2, user.getPassword());
             ps.executeUpdate();
+            ps.close();
+            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

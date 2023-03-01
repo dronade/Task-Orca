@@ -14,20 +14,20 @@ public class TaskDatabase {
     private static final String CREATE_TABLE_STATEMENT = """
             CREATE TABLE IF NOT EXISTS TASKS (
             	user_id integer NOT NULL,
-            	task_id integer NOT NULL,
              	title text NOT NULL,
             	details text,
             	due_date text,
             	created_at text NOT NULL
             );""";
-//FOREIGN KEY(user_id) REFERENCES USERS(id)
+
     public TaskDatabase() {}
     /**
      * Create the database to store Tasks in if it has not been created already.
      */
     public void createDatabase() {
         try {
-            DriverManager.getConnection(DATABASE_FILE); // create a new database if it does not exist already
+            Connection conn = DriverManager.getConnection(DATABASE_FILE); // create a new database if it does not exist already
+            conn.close();
         } catch (SQLException error) {
             System.err.println(error.getMessage());
         }
@@ -54,14 +54,15 @@ public class TaskDatabase {
                 + "created_at, title, details, due_date)"
                 + "VALUES(?,?,?,?,?)";
 
-
-        try (Connection conn = getConnection(DATABASE_FILE); PreparedStatement ps = conn.prepareStatement(sql)) {
+        try {
+            Connection conn = getConnection(DATABASE_FILE); PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, task.getUserId());
             ps.setTimestamp(2, task.getCreated_at());
             ps.setString(3, task.getTitle());
             ps.setString(4, task.getDetails());
             ps.setString(5, task.getDue_date());
             ps.executeUpdate();
+            ps.close();
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();

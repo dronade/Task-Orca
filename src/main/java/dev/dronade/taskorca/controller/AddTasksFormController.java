@@ -52,7 +52,7 @@ public class AddTasksFormController {
 
             String taskTitle = TaskTitleInput.getText().trim();
             String taskDetails = AdditionalDetailsInput.getText().trim();
-            String taskDue_Date = DueDateInput.toString();
+            String taskDue_Date = DueDateInput.getValue().toString();
 
             if (!taskTitle.equals("") || !taskDetails.equals("")) {
 
