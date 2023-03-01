@@ -12,6 +12,7 @@ import static java.sql.DriverManager.getConnection;
  */
 public class UsersDatabase {
     private static final String DATABASE_FILE = "jdbc:sqlite:users.db";
+    //TODO: set user_id
     private static final String CREATE_TABLE_STATEMENT = "CREATE TABLE IF NOT EXISTS USERS (\n"
             + "	username text NOT NULL,\n"
             + "	password text\n"

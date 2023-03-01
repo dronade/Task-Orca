@@ -1,6 +1,7 @@
 package dev.dronade.taskorca.model;
 
 public class User {
+    //TODO: add user_id
     private String username;
     private String password;
 

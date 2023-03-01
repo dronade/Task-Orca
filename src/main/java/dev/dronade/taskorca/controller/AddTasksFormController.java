@@ -11,8 +11,8 @@ import javafx.scene.control.TextField;
 import java.util.Calendar;
 
 public class AddTasksFormController {
+    //TODO: make naming scheme consistent
 
-    private int userID;
     private TaskDatabase taskDatabase;
 
     @FXML
@@ -68,7 +68,7 @@ public class AddTasksFormController {
 
                 TaskTitleInput.setText("");
                 AdditionalDetailsInput.setText("");
-                //DueDateInput.setChronology();
+                //TODO: make due date reset
 
                 System.out.println("task added");
 
