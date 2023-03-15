@@ -17,7 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class LoginController {
-
+    private int userID;
 
     @FXML
     private TextField loginUsername;
@@ -52,6 +52,7 @@ public class LoginController {
                 while (userRow.next()){
                     counter ++;
                     System.out.println("Welcome back " + userRow.getString("username") + "!");
+                    userID = userRow.getInt("user_id");
                 }
                 if (counter == 1){
                     showAddTasks();
@@ -90,6 +91,10 @@ public class LoginController {
         }
         stage.setScene(scene);
         stage.setTitle("Task Orca - Add Tasks");
+
+        AddTasksController addTasksController = fxmlLoader.getController();
+        addTasksController.setUserID(userID);
+
         stage.showAndWait();
     }
 }

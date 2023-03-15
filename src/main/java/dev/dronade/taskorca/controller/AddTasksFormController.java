@@ -14,6 +14,7 @@ public class AddTasksFormController {
     //TODO: make naming scheme consistent
 
     private TaskDatabase taskDatabase;
+    private int userID;
 
     @FXML
     private TextField TaskTitleInput;
@@ -56,9 +57,9 @@ public class AddTasksFormController {
 
             if (!taskTitle.equals("") || !taskDetails.equals("")) {
 
-                System.out.println("user_id: " + AddTasksController.userId);
+                System.out.println("user_id: " + AddTasksController.userID);
 
-                task.setUserId(AddTasksController.userId);
+                task.setUserID(AddTasksController.userID);
                 task.setCreated_at(timestamp);
                 task.setDetails(taskDetails);
                 task.setTitle(taskTitle);
@@ -79,6 +80,17 @@ public class AddTasksFormController {
 
         });
 
+    }
+
+    public int getUserID() {
+        System.out.println(userID);
+
+        return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
+        System.out.println(this.userID);
     }
 
 }

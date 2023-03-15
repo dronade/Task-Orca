@@ -57,7 +57,7 @@ public class TaskDatabase {
 
         try {
             Connection conn = getConnection(DATABASE_FILE); PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1, task.getUserId());
+            ps.setInt(1, task.getUserID());
             ps.setTimestamp(2, task.getCreated_at());
             ps.setString(3, task.getTitle());
             ps.setString(4, task.getDetails());

@@ -15,7 +15,7 @@ import java.util.Objects;
 
 public class AddTasksController {
     //TODO: make naming scheme consistent
-    public static int userId;
+    public static int userID;
 
     @FXML
     private ImageView addTasksButton;
@@ -44,7 +44,12 @@ public class AddTasksController {
             try {
                 AnchorPane AddTaskPane =
                         FXMLLoader.load((Objects.requireNonNull(TaskOrcaApplication.class.getResource("AddTasksFormView.fxml"))));
+
+                AddTasksFormController addTasksFormController = new AddTasksFormController();
+                addTasksFormController.setUserID(getUserID());
+
                 GreyBox.getChildren().setAll(AddTaskPane);
+
             } catch (IOException exception) {
                 exception.printStackTrace();
             }
@@ -66,14 +71,13 @@ public class AddTasksController {
         });
     }
 
-    public void setUserId(int userId) {
-
-        this.userId = userId;
-        System.out.println("User Id is " + this.userId);
+    public void setUserID(int userID) {
+        this.userID = userID;
+        System.out.println("User Id is " + this.userID);
 
     }
 
-    public int getUserId(){
-        return this.userId;
+    public int getUserID(){
+        return this.userID;
     }
 }

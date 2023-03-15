@@ -4,15 +4,15 @@ package dev.dronade.taskorca.model;
 import java.sql.Timestamp;
 
 public class Task {
-    private int userId;
+    private int userID;
     private int taskId;
     private Timestamp created_at;
     private String due_date;
     private String title;
     private String details;
 
-    public Task(Integer userId, Timestamp created_at, String due_date, String title, String details) {
-        this.userId = userId;
+    public Task(Integer userID, Timestamp created_at, String due_date, String title, String details) {
+        this.userID = userID;
         this.created_at = created_at;
         this.due_date = due_date;
         this.title = title;
@@ -55,20 +55,20 @@ public class Task {
         this.details = details;
     }
 
-    public int getUserId() {
-        return this.userId;
+    public int getUserID() {
+        return this.userID;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
 
 
-    public int getTaskId() {
+    public int getTaskID() {
         return taskId;
     }
 
-    public void setTaskId(int taskId) {
+    public void setTaskID(int taskId) {
         this.taskId = taskId;
     }
 }

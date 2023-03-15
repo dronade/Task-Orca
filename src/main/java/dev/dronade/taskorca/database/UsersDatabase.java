@@ -14,6 +14,7 @@ public class UsersDatabase {
     private static final String DATABASE_FILE = "jdbc:sqlite:users.db";
     //TODO: set user_id
     private static final String CREATE_TABLE_STATEMENT = "CREATE TABLE IF NOT EXISTS USERS (\n"
+            + " user_id integer PRIMARY KEY,\n"
             + "	username text NOT NULL,\n"
             + "	password text\n"
             + ");";
@@ -28,7 +29,7 @@ public class UsersDatabase {
         try {
             getConnection(DATABASE_FILE); // create a new database if it does not exist already
         } catch (SQLException error) {
-            System.err.println("connect" + error.getMessage());
+            System.err.println("create" + error.getMessage());
         }
     }
 
