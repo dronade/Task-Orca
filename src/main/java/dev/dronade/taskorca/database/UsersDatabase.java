@@ -49,7 +49,8 @@ public class UsersDatabase {
     }
 
     public void signUpUser(User user) throws SQLException {
-        final String SQL = "INSERT INTO USERS VALUES(?,?)";
+        final String SQL = "INSERT INTO USERS (username,password)" +
+                " VALUES (?,?)";
         try {
             Connection conn = getConnection(DATABASE_FILE); PreparedStatement ps = conn.prepareStatement(SQL);
             ps.setString(1, user.getUsername());
