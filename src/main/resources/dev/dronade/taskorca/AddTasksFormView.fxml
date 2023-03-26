@@ -31,6 +31,11 @@
                   <Font name="Dubai Medium" size="14.0" />
                </font>
             </Button>
+            <Label fx:id="SuccessTaskLabel" layoutX="504.0" layoutY="12.0" text="Success: Task Added" textFill="#07861f" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
     </children>

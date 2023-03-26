@@ -37,6 +37,9 @@ public class AddTasksFormController {
     @FXML
     private Button CreateTaskButton;
 
+    @FXML
+    private Label SuccessTaskLabel;
+
 
     @FXML
     void initialize() {
@@ -71,10 +74,12 @@ public class AddTasksFormController {
                 AdditionalDetailsInput.setText("");
                 //TODO: make due date reset
 
+                SuccessTaskLabel.setVisible(true);
                 System.out.println("task added");
 
             } else {
                 System.out.println("task not added");
+                SuccessTaskLabel.setVisible(false);
 
             }
 
