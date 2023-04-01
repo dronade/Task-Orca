@@ -1,5 +1,6 @@
 package dev.dronade.taskorca.database;
 import dev.dronade.taskorca.model.Task;
+import dev.dronade.taskorca.model.User;
 
 import java.sql.*;
 
@@ -51,12 +52,12 @@ public class TaskDatabase {
 
     public void insertTask(Task task) {
 
-        String sql = "INSERT INTO TASKS( user_id,"
+        String query = "INSERT INTO TASKS( user_id,"
                 + "created_at, title, details, due_date)"
                 + "VALUES(?,?,?,?,?)";
 
         try {
-            Connection conn = getConnection(DATABASE_FILE); PreparedStatement ps = conn.prepareStatement(sql);
+            Connection conn = getConnection(DATABASE_FILE); PreparedStatement ps = conn.prepareStatement(query);
             ps.setInt(1, task.getUserID());
             ps.setTimestamp(2, task.getCreated_at());
             ps.setString(3, task.getTitle());
@@ -69,5 +70,20 @@ public class TaskDatabase {
             e.printStackTrace();
         }
 
+    }
+
+    public ResultSet getTasksByUserID(int userId) {
+        ResultSet tasks = null;
+        String query = "SELECT * FROM TASKS WHERE user_id=?";
+
+        try {
+            Connection conn = getConnection(DATABASE_FILE);PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, userId);
+            tasks = ps.executeQuery();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return tasks;
     }
 }
