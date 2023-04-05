@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
@@ -16,19 +17,22 @@
             <children>
                 <CubicCurve controlX1="-253.4779510498047" controlX2="98.46371459960938" controlY1="93.0" controlY2="28.0" endX="52.30792236328125" endY="-177.0" fill="DODGERBLUE" layoutX="170.0" layoutY="177.0" startX="-219.6918487548828" startY="-177.0" stroke="BLACK" style="-fx-fill: #f3f3f7;" />
                 <CubicCurve controlX1="189.0179443359375" controlX2="-45.982025146484375" controlY1="-89.0" controlY2="-4.0" endX="-173.98202514648438" endY="84.0" fill="DODGERBLUE" layoutX="494.0" layoutY="358.0" startX="206.0" startY="84.0" stroke="BLACK" style="-fx-fill: #f3f3f7;" />
-                <AnchorPane fx:id="GreyBox" layoutX="18.0" layoutY="17.0" prefHeight="411.0" prefWidth="667.0" style="-fx-background-color: #b5b6b7;" />
+                <AnchorPane fx:id="GreyBox" layoutX="18.0" layoutY="17.0" prefHeight="411.0" prefWidth="667.0" style="-fx-background-color: #b5b6b7;">
+               <children>
+                     <JFXListView fx:id="TaskListView" layoutX="8.0" layoutY="8.0" prefHeight="395.0" prefWidth="650.0" style="-fx-background-color: #ffff;" />
+               </children></AnchorPane>
             </children></AnchorPane>
-      <Label layoutX="217.0" layoutY="7.0" prefHeight="46.0" prefWidth="59.0" text="List">
+      <Label fx:id="ListLabel" layoutX="217.0" layoutY="7.0" prefHeight="46.0" prefWidth="59.0" text="List" textFill="WHITE">
          <font>
             <Font name="Dubai Medium" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="312.0" layoutY="7.0" prefHeight="46.0" prefWidth="81.0" text="Folders">
+      <Label fx:id="FolderLabel" layoutX="312.0" layoutY="7.0" prefHeight="46.0" prefWidth="81.0" text="Folders">
          <font>
             <Font name="Dubai Medium" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="430.0" layoutY="7.0" prefHeight="46.0" prefWidth="99.0" text="Settings">
+      <Label fx:id="SettingsLabel" layoutX="430.0" layoutY="7.0" prefHeight="46.0" prefWidth="99.0" text="Settings">
          <font>
             <Font name="Dubai Medium" size="24.0" />
          </font>
