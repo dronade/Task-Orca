@@ -7,12 +7,20 @@ import dev.dronade.taskorca.model.Task;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.MultipleSelectionModel;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Callback;
 
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class ListController {
 
@@ -34,32 +42,17 @@ public class ListController {
     private ObservableList<Task> tasks;
     private ObservableList<Task> refreshedTasks;
 
-    private TaskDatabase databaseHandler;
-
 
 
     @FXML
     void initialize() throws SQLException {
         tasks = FXCollections.observableArrayList();
 
-
-        databaseHandler = new TaskDatabase();
-        ResultSet resultSet = databaseHandler.getTasksByUserID(AddTasksController.userID);
-
-        while (resultSet.next()) {
-            Task task = new Task();
-            task.setTitle(resultSet.getString("title"));
-            task.setDetails(resultSet.getString("details"));
-            tasks.addAll(task);
-
-        }
-
-
-        TaskListView.setItems(tasks);
-        //TaskListView.setCellFactory(TaskCellController -> new TaskCellController());
+        //TaskListView.setItems(tasks);
+        //TaskListView.setOnMouseClicked(event -> System.out.println(TaskListView.getSelectionModel().getSelectedItem()));
+        TaskListView.setCellFactory(TaskCellController -> new TaskCellController());
 
     }
-
 
 
 }
