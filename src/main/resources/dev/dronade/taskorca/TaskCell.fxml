@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="rootAnchorPane" prefHeight="90.0" prefWidth="280.0" style="-fx-background-color: #d3d3d3;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Label fx:id="taskLabel" layoutX="14.0" layoutY="2.0" prefHeight="24.0" prefWidth="239.0" text="Task Title" underline="true">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Label>
+        <Label fx:id="descriptionLabel" layoutX="14.0" layoutY="29.0" prefHeight="33.0" prefWidth="274.0" text="Further Details" wrapText="true" />
+        <Label fx:id="dateLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="217.0" layoutY="6.0" prefHeight="17.0" prefWidth="108.0" style="-fx-background-color: #fff;" text="Due date" textFill="#19ab40" />
+    </children>
+</AnchorPane>

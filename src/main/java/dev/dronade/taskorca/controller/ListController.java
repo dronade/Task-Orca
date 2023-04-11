@@ -1,14 +1,13 @@
 package dev.dronade.taskorca.controller;
 
 
-import com.jfoenix.controls.JFXListView;
 import dev.dronade.taskorca.database.TaskDatabase;
 import dev.dronade.taskorca.model.Task;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.control.MultipleSelectionModel;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 
 import java.sql.ResultSet;
@@ -20,7 +19,7 @@ public class ListController {
     private AnchorPane GreyBox;
 
     @FXML
-    private JFXListView<Task> TaskListView;
+    private ListView<Task> TaskListView;
 
     @FXML
     private Label ListLabel;
@@ -50,13 +49,14 @@ public class ListController {
             Task task = new Task();
             task.setTitle(resultSet.getString("title"));
             task.setDetails(resultSet.getString("details"));
+            task.setDue_date(resultSet.getString("due_date"));
             tasks.addAll(task);
 
         }
 
 
         TaskListView.setItems(tasks);
-        //TaskListView.setCellFactory(TaskCellController -> new TaskCellController());
+        TaskListView.setCellFactory(TaskCellController -> new TaskCellController());
 
     }
 
