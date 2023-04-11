@@ -1,7 +1,0 @@
-.list-view {
-    -fx-background-color: #ffffff;
-}
-.list-cell:hover {
-    -fx-cell-hover-color: #434343;
-    -fx-text-fill: white;
-}

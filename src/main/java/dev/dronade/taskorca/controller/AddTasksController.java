@@ -65,7 +65,6 @@ public class AddTasksController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            //scene.getStylesheets().add(TaskOrcaApplication.class.getResource("css/main.css").toExternalForm());
             stage.setScene(scene);
             stage.setTitle("Task Orca - List");
             stage.showAndWait();

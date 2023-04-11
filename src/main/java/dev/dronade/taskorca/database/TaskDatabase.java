@@ -13,13 +13,14 @@ import static java.sql.DriverManager.getConnection;
 public class TaskDatabase {
     private static final String DATABASE_FILE = "jdbc:sqlite:tasks.db";
     //TODO: set task_id, and make user_id a foreign key
-    private static final String CREATE_TABLE_STATEMENT = "CREATE TABLE IF NOT EXISTS TASKS ("
-            	+ "user_id integer NOT NULL,"
-             	+ "title text NOT NULL,"
-            	+ "details text,"
-            	+ "due_date text,"
-                + "created_at text NOT NULL"
-                + ");";
+    private static final String CREATE_TABLE_STATEMENT = """
+            CREATE TABLE IF NOT EXISTS TASKS (
+            	user_id integer NOT NULL,
+             	title text NOT NULL,
+            	details text,
+            	due_date text,
+            	created_at text NOT NULL
+            );""";
 
     public TaskDatabase() {}
     /**
