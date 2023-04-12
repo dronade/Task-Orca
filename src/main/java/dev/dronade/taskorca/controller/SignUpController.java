@@ -32,8 +32,8 @@ public class SignUpController {
     @FXML
     void initialize() {
         signUpLoginLink.setOnAction(event ->{
-            signUpLoginLink.getScene().getWindow().hide();
-            Stage stage = new Stage();
+//            signUpLoginLink.getScene().getWindow().hide();
+            Stage stage = (Stage) signUpLoginLink.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(TaskOrcaApplication.class.getResource("LoginView.fxml"));
             Scene scene = null;
             try {
@@ -43,7 +43,7 @@ public class SignUpController {
             }
             stage.setScene(scene);
             stage.setTitle("Task Orca - Log In");
-            stage.showAndWait();
+//            stage.showAndWait();
         });
 
 

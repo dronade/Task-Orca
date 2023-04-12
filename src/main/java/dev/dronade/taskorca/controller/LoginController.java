@@ -64,8 +64,8 @@ public class LoginController {
         });
 
         loginSignUpLink.setOnAction(event ->{
-            loginSignUpLink.getScene().getWindow().hide();
-            Stage stage = new Stage();
+//            loginSignUpLink.getScene().getWindow().hide();
+            Stage stage = (Stage) loginSignUpLink.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(TaskOrcaApplication.class.getResource("SignUpView.fxml"));
             Scene scene = null;
             try {
@@ -75,13 +75,13 @@ public class LoginController {
             }
             stage.setScene(scene);
             stage.setTitle("Task Orca - Sign Up");
-            stage.showAndWait();
+//            stage.showAndWait();
         });
     }
 
     private void showAddTasks(){
-        loginSignUpLink.getScene().getWindow().hide();
-        Stage stage = new Stage();
+//        loginSignUpLink.getScene().getWindow().hide();
+        Stage stage = (Stage) loginSignUpLink.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(TaskOrcaApplication.class.getResource("AddTasksView.fxml"));
         Scene scene = null;
         try {
@@ -95,6 +95,6 @@ public class LoginController {
         AddTasksController addTasksController = fxmlLoader.getController();
         addTasksController.setUserID(userID);
 
-        stage.showAndWait();
+//        stage.showAndWait();
     }
 }

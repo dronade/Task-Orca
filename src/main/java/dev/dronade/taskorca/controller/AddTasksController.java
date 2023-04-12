@@ -56,8 +56,8 @@ public class AddTasksController {
         });
 
         AddTaskListLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            AddTaskListLabel.getScene().getWindow().hide();
-            Stage stage = new Stage();
+//            AddTaskListLabel.getScene().getWindow().hide();
+            Stage stage = (Stage) AddTaskListLabel.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(TaskOrcaApplication.class.getResource("ListView.fxml"));
             Scene scene = null;
             try {
@@ -67,7 +67,7 @@ public class AddTasksController {
             }
             stage.setScene(scene);
             stage.setTitle("Task Orca - List");
-            stage.showAndWait();
+//            stage.showAndWait();
         });
     }
 

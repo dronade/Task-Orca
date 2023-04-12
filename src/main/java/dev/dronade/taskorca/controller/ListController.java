@@ -3,6 +3,7 @@ package dev.dronade.taskorca.controller;
 
 import dev.dronade.taskorca.database.TaskDatabase;
 import dev.dronade.taskorca.model.Task;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -30,36 +31,43 @@ public class ListController {
     @FXML
     private Label SettingsLabel;
 
-    private ObservableList<Task> tasks;
+    private ObservableList<Task> tasks = FXCollections.observableArrayList();
     private ObservableList<Task> refreshedTasks;
 
     private TaskDatabase databaseHandler;
 
-
-
-    @FXML
-    void initialize() throws SQLException {
-        tasks = FXCollections.observableArrayList();
-
-
-        databaseHandler = new TaskDatabase();
-        ResultSet resultSet = databaseHandler.getTasksByUserID(AddTasksController.userID);
-
-        while (resultSet.next()) {
-            Task task = new Task();
-            task.setTitle(resultSet.getString("title"));
-            task.setDetails(resultSet.getString("details"));
-            task.setDue_date(resultSet.getString("due_date"));
-            tasks.addAll(task);
-
-        }
-
-
+    public void initialize() {
         TaskListView.setItems(tasks);
         TaskListView.setCellFactory(TaskCellController -> new TaskCellController());
-
+        loadData();
     }
 
-
-
+    private void loadData() {
+//        Task test = new Task();
+//        test.setTitle("test");
+//        test.setDetails("test task");
+//        Task test2 = new Task();
+//        test2.setTitle("test2");
+//        test2.setDetails("test task");
+//        tasks.add(test);
+//        tasks.add(test2);
+        javafx.concurrent.Task<Void> task = new javafx.concurrent.Task<>() {
+            @Override
+            protected Void call() throws Exception {
+                databaseHandler = new TaskDatabase();
+                ResultSet resultSet = databaseHandler.getTasksByUserID(AddTasksController.userID);
+                System.out.println("task started");
+                while (resultSet.next()) {
+                    Task task = new Task();
+                    System.out.println(resultSet.getString("title"));
+                    task.setTitle(resultSet.getString("title"));
+                    task.setDetails(resultSet.getString("details"));
+                    task.setDue_date(resultSet.getString("due_date"));
+                    tasks.addAll(task);
+                }
+                return null;
+            }
+        };
+        new Thread(task).start();
+    }
 }
