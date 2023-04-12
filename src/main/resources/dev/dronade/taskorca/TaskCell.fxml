@@ -1,17 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="rootAnchorPane" prefWidth="640.0" style="-fx-background-color: #d3d3d3;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="rootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="83.0" prefWidth="600.0" style="-fx-background-color: #f2f2f2;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <Label fx:id="taskLabel" layoutX="14.0" layoutY="2.0" prefHeight="24.0" prefWidth="239.0" text="Task Title" underline="true">
+        <Label fx:id="taskLabel" layoutX="14.0" layoutY="2.0" prefHeight="24.0" prefWidth="239.0" text="Task Title" textFill="#1e1e1e" underline="true">
             <font>
-                <Font size="16.0" />
+                <Font name="Dubai Medium" size="16.0" />
             </font>
         </Label>
-        <Label fx:id="descriptionLabel" layoutX="14.0" layoutY="29.0" prefHeight="33.0" prefWidth="274.0" text="Further Details" wrapText="true" />
-        <Label fx:id="dateLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="526.0" layoutY="6.0" prefHeight="17.0" prefWidth="108.0" style="-fx-background-color: #fff;" text="Due date" textFill="#19ab40" />
+        <Label fx:id="descriptionLabel" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="29.0" prefHeight="49.0" prefWidth="523.0" text="Further Details" textFill="#1e1e1e" wrapText="true">
+         <font>
+            <Font name="Dubai Medium" size="12.0" />
+         </font></Label>
+        <Label fx:id="dateLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="513.0" layoutY="4.0" prefHeight="17.0" prefWidth="108.0" text="Due date" textFill="#009a29">
+         <font>
+            <Font name="Dubai Medium" size="13.0" />
+         </font></Label>
+      <CheckBox fx:id="DoneBox" layoutX="544.0" layoutY="39.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="63.0" text="Done" textFill="#009a29">
+         <font>
+            <Font name="Dubai Medium" size="13.0" />
+         </font>
+      </CheckBox>
+      <Label fx:id="DueLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="485.0" layoutY="2.0" prefHeight="25.0" prefWidth="52.0" text=" Due:" textFill="#1e1e1e">
+         <font>
+            <Font name="Dubai Medium" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="SubtaskLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="354.0" layoutY="2.0" prefHeight="25.0" prefWidth="118.0" text="Subtasks:" textFill="#1e1e1e">
+         <font>
+            <Font name="Dubai Medium" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="SubTaskNumberLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="429.0" layoutY="2.0" prefHeight="25.0" prefWidth="52.0" text="0" textFill="#1e1e1e">
+         <font>
+            <Font name="Dubai Medium" size="13.0" />
+         </font>
+      </Label>
     </children>
+   <cursor>
+      <Cursor fx:constant="CLOSED_HAND" />
+   </cursor>
 </AnchorPane>
