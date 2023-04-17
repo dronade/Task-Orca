@@ -18,7 +18,7 @@
                 <CubicCurve controlX1="189.0179443359375" controlX2="-45.982025146484375" controlY1="-89.0" controlY2="-4.0" endX="-173.98202514648438" endY="84.0" fill="DODGERBLUE" layoutX="494.0" layoutY="358.0" startX="206.0" startY="84.0" stroke="BLACK" style="-fx-fill: #f3f3f7;" />
                 <AnchorPane fx:id="GreyBox" layoutX="18.0" layoutY="31.0" prefHeight="397.0" prefWidth="667.0" style="-fx-background-color: #b5b6b7;">
                <children>
-                     <ListView fx:id="TaskListView" layoutX="8.0" layoutY="11.0" prefHeight="392.0" prefWidth="650.0" style="-fx-background-color: #ffff;" />
+                     <ListView fx:id="TaskListView" editable="true" layoutX="8.0" layoutY="11.0" prefHeight="392.0" prefWidth="650.0" style="-fx-background-color: #ffff;" />
                </children></AnchorPane>
             <MenuButton fx:id="FilterBox" layoutX="563.0" layoutY="2.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="122.0" style="-fx-background-color: #b5b6b7;" text="Filter">
               <items>
