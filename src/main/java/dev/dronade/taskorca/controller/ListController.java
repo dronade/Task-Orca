@@ -43,14 +43,6 @@ public class ListController {
     }
 
     private void loadData() {
-//        Task test = new Task();
-//        test.setTitle("test");
-//        test.setDetails("test task");
-//        Task test2 = new Task();
-//        test2.setTitle("test2");
-//        test2.setDetails("test task");
-//        tasks.add(test);
-//        tasks.add(test2);
         javafx.concurrent.Task<Void> task = new javafx.concurrent.Task<>() {
             @Override
             protected Void call() throws Exception {

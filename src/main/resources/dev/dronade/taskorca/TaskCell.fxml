@@ -2,17 +2,18 @@
 
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane fx:id="rootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="83.0" prefWidth="600.0" style="-fx-background-color: #f2f2f2;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <Label fx:id="taskLabel" layoutX="14.0" layoutY="2.0" prefHeight="24.0" prefWidth="239.0" text="Task Title" textFill="#1e1e1e" underline="true">
+        <Label fx:id="taskLabel" layoutX="44.0" prefHeight="24.0" prefWidth="239.0" text="Task Title" textFill="#1e1e1e" underline="true">
             <font>
                 <Font name="Dubai Medium" size="16.0" />
             </font>
         </Label>
-        <Label fx:id="descriptionLabel" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="29.0" prefHeight="49.0" prefWidth="523.0" text="Further Details" textFill="#1e1e1e" wrapText="true">
+        <Label fx:id="descriptionLabel" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="44.0" layoutY="29.0" prefHeight="49.0" prefWidth="493.0" text="Further Details" textFill="#1e1e1e" wrapText="true">
          <font>
             <Font name="Dubai Medium" size="12.0" />
          </font></Label>
@@ -40,6 +41,14 @@
             <Font name="Dubai Medium" size="13.0" />
          </font>
       </Label>
+      <ImageView fx:id="UpArrow" fitHeight="29.0" fitWidth="27.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/upArrow.png" />
+         </image></ImageView>
+      <ImageView fx:id="DownArrow" fitHeight="29.0" fitWidth="27.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/downArrow.png" />
+         </image></ImageView>
     </children>
    <cursor>
       <Cursor fx:constant="CLOSED_HAND" />
