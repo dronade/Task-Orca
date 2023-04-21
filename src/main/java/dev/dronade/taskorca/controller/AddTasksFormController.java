@@ -3,10 +3,7 @@ package dev.dronade.taskorca.controller;
 import dev.dronade.taskorca.database.TaskDatabase;
 import dev.dronade.taskorca.model.Task;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.util.Calendar;
 
@@ -40,12 +37,24 @@ public class AddTasksFormController {
     @FXML
     private Label SuccessTaskLabel;
 
+    @FXML
+    private Label FolderLabel;
+
+    @FXML
+    private ChoiceBox<String> FolderSelection;
+
 
     @FXML
     void initialize() {
 
         taskDatabase = new TaskDatabase();
         Task task = new Task();
+
+        FolderSelection.getItems().add("Work");
+        FolderSelection.getItems().add("Study");
+        FolderSelection.getItems().add("Chores");
+        FolderSelection.getItems().add("Appointments");
+        FolderSelection.getItems().add("Other");
 
         CreateTaskButton.setOnAction(event -> {
 
@@ -57,6 +66,7 @@ public class AddTasksFormController {
             String taskTitle = TaskTitleInput.getText().trim();
             String taskDetails = AdditionalDetailsInput.getText().trim();
             String taskDue_Date = DueDateInput.getValue().toString();
+            String taskFolder = FolderSelection.getValue();
 
             if (!taskTitle.equals("") || !taskDetails.equals("")) {
 
@@ -67,6 +77,7 @@ public class AddTasksFormController {
                 task.setDetails(taskDetails);
                 task.setTitle(taskTitle);
                 task.setDue_date(taskDue_Date);
+                task.setFolder(taskFolder);
 
                 taskDatabase.insertTask(task);
 

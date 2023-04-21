@@ -36,6 +36,12 @@
                   <Font size="14.0" />
                </font>
             </Label>
+            <Label fx:id="TaskTitleLabel1" layoutX="471.0" layoutY="20.0" text="Folder Category">
+               <font>
+                  <Font name="Dubai Medium" size="18.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="FolderSelection" layoutX="471.0" layoutY="52.0" prefWidth="150.0" style="-fx-background-color: #ffffff;" />
          </children>
       </AnchorPane>
     </children>

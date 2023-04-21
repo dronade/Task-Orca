@@ -19,6 +19,7 @@ public class TaskDatabase {
              	title text NOT NULL,
             	details text,
             	due_date text,
+            	folder text NOT NULL,
             	created_at text NOT NULL
             );""";
 
@@ -53,8 +54,8 @@ public class TaskDatabase {
     public void insertTask(Task task) {
 
         String query = "INSERT INTO TASKS( user_id,"
-                + "created_at, title, details, due_date)"
-                + "VALUES(?,?,?,?,?)";
+                + "created_at, title, details, due_date, folder)"
+                + "VALUES(?,?,?,?,?,?)";
 
         try {
             Connection conn = getConnection(DATABASE_FILE); PreparedStatement ps = conn.prepareStatement(query);
@@ -63,6 +64,7 @@ public class TaskDatabase {
             ps.setString(3, task.getTitle());
             ps.setString(4, task.getDetails());
             ps.setString(5, task.getDue_date());
+            ps.setString(6, task.getFolder());
             ps.executeUpdate();
             ps.close();
             conn.close();

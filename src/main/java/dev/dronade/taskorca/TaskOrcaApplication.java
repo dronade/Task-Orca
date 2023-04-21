@@ -20,9 +20,7 @@ public class TaskOrcaApplication extends Application {
         taskDatabase.createDatabase();
         taskDatabase.setupDatabase();
 
-        //editing out so i can bypass login to work on tasks
         FXMLLoader fxmlLoader = new FXMLLoader(TaskOrcaApplication.class.getResource("LoginView.fxml"));
-        //FXMLLoader fxmlLoader = new FXMLLoader(TaskOrcaApplication.class.getResource("AddTasksView.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load(), 700, 500);
         stage.setScene(scene);
