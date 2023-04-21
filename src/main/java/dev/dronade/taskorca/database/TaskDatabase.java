@@ -1,6 +1,5 @@
 package dev.dronade.taskorca.database;
 import dev.dronade.taskorca.model.Task;
-import dev.dronade.taskorca.model.User;
 
 import java.sql.*;
 
@@ -81,6 +80,21 @@ public class TaskDatabase {
         try {
             Connection conn = getConnection(DATABASE_FILE);PreparedStatement ps = conn.prepareStatement(query);
             ps.setInt(1, userId);
+            tasks = ps.executeQuery();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return tasks;
+    }
+
+    public ResultSet getTasksByFolder(String folder) {
+        ResultSet tasks = null;
+        String query = "SELECT * FROM TASKS WHERE folder=?";
+
+        try {
+            Connection conn = getConnection(DATABASE_FILE);PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, folder);
             tasks = ps.executeQuery();
 
         } catch (SQLException e) {

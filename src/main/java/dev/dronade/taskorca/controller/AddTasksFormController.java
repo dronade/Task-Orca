@@ -87,6 +87,7 @@ public class AddTasksFormController {
 
                 SuccessTaskLabel.setVisible(true);
                 System.out.println("task added");
+                System.out.println(taskFolder);
 
             } else {
                 System.out.println("task not added");

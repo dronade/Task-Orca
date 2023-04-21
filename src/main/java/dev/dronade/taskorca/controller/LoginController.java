@@ -55,6 +55,7 @@ public class LoginController {
                     userID = userRow.getInt("user_id");
                 }
                 if (counter == 1){
+                    // need to create if statement for if user has tasks or not
                     showAddTasks();
                     System.out.println("user is logged in");
                 }
@@ -64,7 +65,6 @@ public class LoginController {
         });
 
         loginSignUpLink.setOnAction(event ->{
-//            loginSignUpLink.getScene().getWindow().hide();
             Stage stage = (Stage) loginSignUpLink.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(TaskOrcaApplication.class.getResource("SignUpView.fxml"));
             Scene scene = null;
@@ -75,12 +75,10 @@ public class LoginController {
             }
             stage.setScene(scene);
             stage.setTitle("Task Orca - Sign Up");
-//            stage.showAndWait();
         });
     }
 
     private void showAddTasks(){
-//        loginSignUpLink.getScene().getWindow().hide();
         Stage stage = (Stage) loginSignUpLink.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(TaskOrcaApplication.class.getResource("AddTasksView.fxml"));
         Scene scene = null;
@@ -94,7 +92,5 @@ public class LoginController {
 
         AddTasksController addTasksController = fxmlLoader.getController();
         addTasksController.setUserID(userID);
-
-//        stage.showAndWait();
     }
 }

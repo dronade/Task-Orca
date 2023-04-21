@@ -56,7 +56,6 @@ public class AddTasksController {
         });
 
         AddTaskListLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-//            AddTaskListLabel.getScene().getWindow().hide();
             Stage stage = (Stage) AddTaskListLabel.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(TaskOrcaApplication.class.getResource("ListView.fxml"));
             Scene scene = null;
@@ -67,7 +66,19 @@ public class AddTasksController {
             }
             stage.setScene(scene);
             stage.setTitle("Task Orca - List");
-//            stage.showAndWait();
+        });
+
+        AddTaskFolderLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            Stage stage = (Stage) AddTaskFolderLabel.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader(TaskOrcaApplication.class.getResource("FolderView.fxml"));
+            Scene scene = null;
+            try {
+                scene = new Scene(fxmlLoader.load(), 700, 500);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            stage.setScene(scene);
+            stage.setTitle("Task Orca - Folders");
         });
     }
 
