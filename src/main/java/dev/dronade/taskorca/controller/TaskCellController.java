@@ -20,16 +20,7 @@ import java.io.IOException;
 public class TaskCellController extends ListCell<Task> {
 
     @FXML
-    private ImageView UpArrow;
-
-    @FXML
-    private ImageView DownArrow;
-
-    @FXML
     private AnchorPane rootAnchorPane;
-
-    @FXML
-    private ImageView iconImageView;
 
     @FXML
     private Label taskLabel;
@@ -39,12 +30,6 @@ public class TaskCellController extends ListCell<Task> {
 
     @FXML
     private Label dateLabel;
-
-    @FXML
-    private ImageView deleteButton;
-
-    @FXML
-    public ImageView listUpdateButton;
 
     private FXMLLoader fxmlLoader;
     private TaskDatabase db;

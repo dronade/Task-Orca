@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -22,34 +23,78 @@ import java.sql.ResultSet;
 public class FolderController {
 
     @FXML
-    private AnchorPane GreyBox;
-
-    @FXML
-    private MenuButton FilterBox;
-
-    @FXML
     private Label ListLabel;
 
     @FXML
-    private Label FolderLabel;
+    private Label AddTasksLabelFolder;
 
     @FXML
-    private Label SettingsLabel;
+    private ImageView AddTasksButtonFolder;
 
     @FXML
     private TreeView<String> TaskTreeView;
 
-    private String folderName = "Study";
+    // This file needs to be heavily refactored but fear I won't have time before my dissertation is due...
+    // so for now, its stays :((
+
+    private String folderName1 = "Study";
+    private String folderName2 = "Work";
+    private String folderName3 = "Chores";
+    private String folderName4 = "Appointments";
+    private String folderName5 = "Other";
 
     private TaskDatabase databaseHandler;
     private ObservableList<Task> folder1 = FXCollections.observableArrayList();
+    private ObservableList<Task> folder2 = FXCollections.observableArrayList();
+    private ObservableList<Task> folder3 = FXCollections.observableArrayList();
+    private ObservableList<Task> folder4 = FXCollections.observableArrayList();
+    private ObservableList<Task> folder5 = FXCollections.observableArrayList();
 
     public void initialize() {
-        TreeItem rootItem = new TreeItem("Folders");
-        TreeItem<String> folder1Item = new TreeItem<>("Study");
+        AddTasksButtonFolder.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            Stage stage = (Stage) AddTasksButtonFolder.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader(TaskOrcaApplication.class.getResource("AddTasksView.fxml"));
+            Scene scene = null;
+            try {
+                scene = new Scene(fxmlLoader.load(), 700, 500);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            stage.setScene(scene);
+            stage.setTitle("Task Orca - Add Tasks");
+        });
 
-        loadTree(folder1Item);
+        AddTasksLabelFolder.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            Stage stage = (Stage) AddTasksLabelFolder.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader(TaskOrcaApplication.class.getResource("AddTasksView.fxml"));
+            Scene scene = null;
+            try {
+                scene = new Scene(fxmlLoader.load(), 700, 500);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            stage.setScene(scene);
+            stage.setTitle("Task Orca - Add Tasks");
+        });
+
+        TreeItem rootItem = new TreeItem("Folders");
+        TreeItem<String> folder1Item = new TreeItem<>(folderName1);
+        TreeItem<String> folder2Item = new TreeItem<>(folderName2);
+        TreeItem<String> folder3Item = new TreeItem<>(folderName3);
+        TreeItem<String> folder4Item = new TreeItem<>(folderName4);
+        TreeItem<String> folder5Item = new TreeItem<>(folderName5);
+
+        loadTree1(folder1Item);
+        loadTree2(folder2Item);
+        loadTree3(folder3Item);
+        loadTree4(folder4Item);
+        loadTree5(folder5Item);
+
         rootItem.getChildren().add(folder1Item);
+        rootItem.getChildren().add(folder2Item);
+        rootItem.getChildren().add(folder3Item);
+        rootItem.getChildren().add(folder4Item);
+        rootItem.getChildren().add(folder5Item);
         TaskTreeView.setRoot(rootItem);
         TaskTreeView.setShowRoot(false);
 
@@ -67,13 +112,12 @@ public class FolderController {
         });
     }
 
-    private void loadTree(TreeItem<String> folderItem) {
+    private void loadTree1(TreeItem<String> folderItem) {
         javafx.concurrent.Task<Void> task = new javafx.concurrent.Task<>() {
             @Override
             protected Void call() throws Exception {
                 databaseHandler = new TaskDatabase();
-                ResultSet resultSet = databaseHandler.getTasksByFolder(folderName);
-                System.out.println("task started");
+                ResultSet resultSet = databaseHandler.getTasksByFolder(folderName1);
                 while (resultSet.next()) {
                     Task task = new Task();
                     task.setTitle(resultSet.getString("title"));
@@ -87,7 +131,107 @@ public class FolderController {
                 super.succeeded();
                 folder1.forEach((task) -> {
                     folderItem.getChildren().add(new TreeItem<>(task.getTitle()));
-                    System.out.println("folder for each called");
+                });
+            }
+
+        };
+        new Thread(task).start();
+    }
+
+    private void loadTree2(TreeItem<String> folderItem) {
+        javafx.concurrent.Task<Void> task = new javafx.concurrent.Task<>() {
+            @Override
+            protected Void call() throws Exception {
+                databaseHandler = new TaskDatabase();
+                ResultSet resultSet = databaseHandler.getTasksByFolder(folderName2);
+                while (resultSet.next()) {
+                    Task task = new Task();
+                    task.setTitle(resultSet.getString("title"));
+                    folder2.addAll(task);
+                }
+                return null;
+            }
+
+            @Override
+            protected void succeeded() {
+                super.succeeded();
+                folder2.forEach((task) -> {
+                    folderItem.getChildren().add(new TreeItem<>(task.getTitle()));
+                });
+            }
+
+        };
+        new Thread(task).start();
+    }
+    private void loadTree3(TreeItem<String> folderItem) {
+        javafx.concurrent.Task<Void> task = new javafx.concurrent.Task<>() {
+            @Override
+            protected Void call() throws Exception {
+                databaseHandler = new TaskDatabase();
+                ResultSet resultSet = databaseHandler.getTasksByFolder(folderName3);
+                while (resultSet.next()) {
+                    Task task = new Task();
+                    task.setTitle(resultSet.getString("title"));
+                    folder3.addAll(task);
+                }
+                return null;
+            }
+
+            @Override
+            protected void succeeded() {
+                super.succeeded();
+                folder3.forEach((task) -> {
+                    folderItem.getChildren().add(new TreeItem<>(task.getTitle()));
+                });
+            }
+
+        };
+        new Thread(task).start();
+    }
+    private void loadTree4(TreeItem<String> folderItem) {
+        javafx.concurrent.Task<Void> task = new javafx.concurrent.Task<>() {
+            @Override
+            protected Void call() throws Exception {
+                databaseHandler = new TaskDatabase();
+                ResultSet resultSet = databaseHandler.getTasksByFolder(folderName4);
+                while (resultSet.next()) {
+                    Task task = new Task();
+                    task.setTitle(resultSet.getString("title"));
+                    folder4.addAll(task);
+                }
+                return null;
+            }
+
+            @Override
+            protected void succeeded() {
+                super.succeeded();
+                folder4.forEach((task) -> {
+                    folderItem.getChildren().add(new TreeItem<>(task.getTitle()));
+                });
+            }
+
+        };
+        new Thread(task).start();
+    }
+    private void loadTree5(TreeItem<String> folderItem) {
+        javafx.concurrent.Task<Void> task = new javafx.concurrent.Task<>() {
+            @Override
+            protected Void call() throws Exception {
+                databaseHandler = new TaskDatabase();
+                ResultSet resultSet = databaseHandler.getTasksByFolder(folderName5);
+                while (resultSet.next()) {
+                    Task task = new Task();
+                    task.setTitle(resultSet.getString("title"));
+                    folder5.addAll(task);
+                }
+                return null;
+            }
+
+            @Override
+            protected void succeeded() {
+                super.succeeded();
+                folder5.forEach((task) -> {
+                    folderItem.getChildren().add(new TreeItem<>(task.getTitle()));
                 });
             }
 

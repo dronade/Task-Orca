@@ -50,6 +50,7 @@ public class AddTasksFormController {
         taskDatabase = new TaskDatabase();
         Task task = new Task();
 
+        // I'm aware this is hardcoded & not great, but time constraints ¯\_(ツ)_/¯
         FolderSelection.getItems().add("Work");
         FolderSelection.getItems().add("Study");
         FolderSelection.getItems().add("Chores");

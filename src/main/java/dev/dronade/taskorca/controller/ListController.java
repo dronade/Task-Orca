@@ -11,22 +11,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-import java.math.BigInteger;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Comparator;
 import java.util.Date;
-import java.util.logging.Filter;
 
 public class ListController {
 
@@ -37,25 +32,18 @@ public class ListController {
     public MenuItem FilterCreationDate;
 
     @FXML
-    private AnchorPane GreyBox;
-
-    @FXML
     private ListView<Task> TaskListView;
-
-    @FXML
-    private Label ListLabel;
 
     @FXML
     private Label FolderLabel;
 
     @FXML
-    private Label SettingsLabel;
+    private Label AddTasksLabelList;
 
     @FXML
-    private MenuButton FilterBox;
+    private ImageView AddTasksButtonList;
 
     private ObservableList<Task> tasks = FXCollections.observableArrayList();
-    private ObservableList<Task> refreshedTasks;
 
     private TaskDatabase databaseHandler;
 
@@ -77,6 +65,32 @@ public class ListController {
             stage.setTitle("Task Orca - Folders");
         });
 
+        AddTasksButtonList.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            Stage stage = (Stage) AddTasksButtonList.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader(TaskOrcaApplication.class.getResource("AddTasksView.fxml"));
+            Scene scene = null;
+            try {
+                scene = new Scene(fxmlLoader.load(), 700, 500);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            stage.setScene(scene);
+            stage.setTitle("Task Orca - Add Tasks");
+        });
+
+        AddTasksLabelList.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            Stage stage = (Stage) AddTasksLabelList.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader(TaskOrcaApplication.class.getResource("AddTasksView.fxml"));
+            Scene scene = null;
+            try {
+                scene = new Scene(fxmlLoader.load(), 700, 500);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            stage.setScene(scene);
+            stage.setTitle("Task Orca - Add Tasks");
+        });
+
         FilterDueDate.setOnAction(actionEvent -> {
             System.out.println("filter due date clicked");
             tasks.sort(new SortByDueDate());
@@ -94,7 +108,6 @@ public class ListController {
             protected Void call() throws Exception {
                 databaseHandler = new TaskDatabase();
                 ResultSet resultSet = databaseHandler.getTasksByUserID(AddTasksController.userID);
-                System.out.println("task started");
                 while (resultSet.next()) {
                     Task task = new Task();
                     task.setTitle(resultSet.getString("title"));
