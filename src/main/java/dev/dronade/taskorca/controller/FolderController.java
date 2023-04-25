@@ -39,7 +39,7 @@ public class FolderController {
     @FXML
     private TreeView<String> TaskTreeView;
 
-    private String folderName = "study";
+    private String folderName = "Study";
 
     private TaskDatabase databaseHandler;
     private ObservableList<Task> folder1 = FXCollections.observableArrayList();
@@ -47,15 +47,8 @@ public class FolderController {
     public void initialize() {
         TreeItem rootItem = new TreeItem("Folders");
         TreeItem<String> folder1Item = new TreeItem<>("Study");
-        folder1Item.getChildren().add(new TreeItem<>("test this works"));
-        folder1Item.getChildren().add(new TreeItem<>("test this works2"));
 
-        loadTree();
-        folder1.forEach((task) -> {
-           folder1Item.getChildren().add(new TreeItem<>(task.getTitle()));
-           System.out.println("folder for each called");
-        });
-
+        loadTree(folder1Item);
         rootItem.getChildren().add(folder1Item);
         TaskTreeView.setRoot(rootItem);
         TaskTreeView.setShowRoot(false);
@@ -74,7 +67,7 @@ public class FolderController {
         });
     }
 
-    private void loadTree() {
+    private void loadTree(TreeItem<String> folderItem) {
         javafx.concurrent.Task<Void> task = new javafx.concurrent.Task<>() {
             @Override
             protected Void call() throws Exception {
@@ -88,6 +81,16 @@ public class FolderController {
                 }
                 return null;
             }
+
+            @Override
+            protected void succeeded() {
+                super.succeeded();
+                folder1.forEach((task) -> {
+                    folderItem.getChildren().add(new TreeItem<>(task.getTitle()));
+                    System.out.println("folder for each called");
+                });
+            }
+
         };
         new Thread(task).start();
     }

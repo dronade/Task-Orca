@@ -24,7 +24,7 @@ public class AddTasksController {
     private AnchorPane GreyBox;
 
     @FXML
-    private Label NoTasksLabel;
+    private Label AddTasksLabel;
 
     @FXML
     private Label AddTaskListLabel;
@@ -39,7 +39,7 @@ public class AddTasksController {
     void initialize() {
         addTasksButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             addTasksButton.setOpacity(0);
-            NoTasksLabel.setOpacity(0);
+            AddTasksLabel.setOpacity(0);
 
             try {
                 AnchorPane AddTaskPane =
