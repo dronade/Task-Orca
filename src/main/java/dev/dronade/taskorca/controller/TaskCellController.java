@@ -6,6 +6,7 @@ import dev.dronade.taskorca.model.Task;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.image.ImageView;
@@ -16,6 +17,7 @@ import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class TaskCellController extends ListCell<Task> {
 
@@ -30,6 +32,9 @@ public class TaskCellController extends ListCell<Task> {
 
     @FXML
     private Label dateLabel;
+
+    @FXML
+    private CheckBox DoneBox;
 
     private FXMLLoader fxmlLoader;
     private TaskDatabase db;
@@ -124,6 +129,7 @@ public class TaskCellController extends ListCell<Task> {
                     e.printStackTrace();
                 }
             }
+            int taskId = task.getTaskID();
 
             taskLabel.setText(task.getTitle());
             dateLabel.setText(task.getDue_date());
@@ -133,6 +139,11 @@ public class TaskCellController extends ListCell<Task> {
             setGraphic(rootAnchorPane);
 
 
+            DoneBox.setOnMouseClicked(event -> {
+                db.deleteTask(AddTasksController.userID,taskId);
+                getListView().getItems().remove(getItem());
+                DoneBox.setSelected(false);
+            });
         }
     }
 }

@@ -74,7 +74,7 @@ public class TaskDatabase {
 
     public ResultSet getTasksByUserID(int userId) {
         ResultSet tasks = null;
-        String query = "SELECT * FROM TASKS WHERE user_id=?";
+        String query = "SELECT *,rowid FROM TASKS WHERE user_id=?";
 
         try {
             Connection conn = getConnection(DATABASE_FILE);PreparedStatement ps = conn.prepareStatement(query);
@@ -89,7 +89,7 @@ public class TaskDatabase {
 
     public ResultSet getTasksByFolder(String folder) {
         ResultSet tasks = null;
-        String query = "SELECT * FROM TASKS WHERE folder=?";
+        String query = "SELECT *,rowid FROM TASKS WHERE folder=?";
 
         try {
             Connection conn = getConnection(DATABASE_FILE);PreparedStatement ps = conn.prepareStatement(query);
@@ -100,5 +100,21 @@ public class TaskDatabase {
             e.printStackTrace();
         }
         return tasks;
+    }
+
+    public void deleteTask(int userId, int taskId)  {
+        String query = "DELETE FROM TASKS WHERE user_id=? AND rowid =?";
+
+        try {
+            Connection conn = getConnection(DATABASE_FILE);PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, userId);
+            ps.setInt(2, taskId);
+            ps.executeUpdate();
+//            tasks = ps.executeQuery();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+//        return tasks;
     }
 }

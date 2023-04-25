@@ -110,6 +110,7 @@ public class ListController {
                 ResultSet resultSet = databaseHandler.getTasksByUserID(AddTasksController.userID);
                 while (resultSet.next()) {
                     Task task = new Task();
+                    task.setTaskID(resultSet.getInt("rowid"));
                     task.setTitle(resultSet.getString("title"));
                     task.setDetails(resultSet.getString("details"));
                     task.setDue_date(resultSet.getString("due_date"));

@@ -5,14 +5,15 @@ import java.sql.Timestamp;
 
 public class Task {
     private int userID;
-    private int taskId;
+    private int taskID;
     private Timestamp created_at;
     private String due_date;
     private String title;
     private String details;
     private String folder;
 
-    public Task(Integer userID, Timestamp created_at, String due_date, String title, String details, String folder) {
+    public Task(Integer taskID, Integer userID, Timestamp created_at, String due_date, String title, String details, String folder) {
+        this.taskID = taskID;
         this.userID = userID;
         this.created_at = created_at;
         this.due_date = due_date;
@@ -68,9 +69,10 @@ public class Task {
     }
 
     public int getTaskID() {
-        return taskId;
+        return taskID;
     }
+
     public void setTaskID(int taskId) {
-        this.taskId = taskId;
+        this.taskID = taskId;
     }
 }
