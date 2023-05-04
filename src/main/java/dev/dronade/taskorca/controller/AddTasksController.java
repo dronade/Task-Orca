@@ -13,8 +13,13 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * @author Emily Canto
+ *  This Class controls the 'AddTaskView'
+ *  It mostly consists of button event handlers to change to various scenes.
+ */
+
 public class AddTasksController {
-    //TODO: make naming scheme consistent
     public static int userID;
 
     @FXML

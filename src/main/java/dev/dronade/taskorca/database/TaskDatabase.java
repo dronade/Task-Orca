@@ -6,9 +6,10 @@ import java.sql.*;
 import static java.sql.DriverManager.getConnection;
 
 /**
- * Class for adding and fetching URLs from a database.
  * @author Emily Canto
+ * Class for adding and fetching Tasks from a database.
  */
+
 public class TaskDatabase {
     private static final String DATABASE_FILE = "jdbc:sqlite:tasks.db";
     private static final String CREATE_TABLE_STATEMENT = """
@@ -27,7 +28,7 @@ public class TaskDatabase {
      */
     public void createDatabase() {
         try {
-            Connection conn = DriverManager.getConnection(DATABASE_FILE); // create a new database if it does not exist already
+            Connection conn = DriverManager.getConnection(DATABASE_FILE);
             conn.close();
         } catch (SQLException error) {
             System.err.println(error.getMessage());
@@ -110,11 +111,9 @@ public class TaskDatabase {
             ps.setInt(1, userId);
             ps.setInt(2, taskId);
             ps.executeUpdate();
-//            tasks = ps.executeQuery();
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-//        return tasks;
     }
 }

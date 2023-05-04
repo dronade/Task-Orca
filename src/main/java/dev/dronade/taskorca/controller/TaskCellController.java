@@ -9,7 +9,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
@@ -17,7 +16,12 @@ import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
-import java.sql.SQLException;
+
+/**
+ * @author Emily Canto
+ *  This Class controls the 'TaskCell'
+ *  It deals with the formatting of tasks in the tiered list, and also handling the drag and drop feature.
+ */
 
 public class TaskCellController extends ListCell<Task> {
 
@@ -44,16 +48,13 @@ public class TaskCellController extends ListCell<Task> {
             if (getItem() == null) {
                 return;
             }
-
             ObservableList<Task> items = getListView().getItems();
-
             int index = items.indexOf(getItem());
 
             Dragboard dragboard = startDragAndDrop(TransferMode.MOVE);
             ClipboardContent content = new ClipboardContent();
             content.putString(String.valueOf(index));
             dragboard.setContent(content);
-
             event.consume();
         });
 
@@ -62,7 +63,6 @@ public class TaskCellController extends ListCell<Task> {
                     event.getDragboard().hasString()) {
                 event.acceptTransferModes(TransferMode.MOVE);
             }
-
             event.consume();
         });
 
@@ -84,7 +84,6 @@ public class TaskCellController extends ListCell<Task> {
             if (getItem() == null) {
                 return;
             }
-
             Dragboard dragboard = event.getDragboard();
             boolean success = false;
 
@@ -96,33 +95,26 @@ public class TaskCellController extends ListCell<Task> {
                 Task temp = items.get(draggedIdx);
                 items.set(draggedIdx, items.get(thisIdx));
                 items.set(thisIdx, temp);
-
                 success = true;
             }
             event.setDropCompleted(success);
-
             event.consume();
         });
-
         setOnDragDone(DragEvent::consume);
     }
 
     @Override
     public void updateItem(Task task, boolean empty) {
-
         db = new TaskDatabase();
-
         super.updateItem(task, empty);
 
         if (empty || task == null) {
             setText(null);
             setGraphic(null);
         } else {
-
             if (fxmlLoader == null) {
                 fxmlLoader = new FXMLLoader(TaskOrcaApplication.class.getResource("TaskCell.fxml"));
                 fxmlLoader.setController(this);
-
                 try {
                     fxmlLoader.load();
                 } catch (IOException e) {
@@ -130,14 +122,12 @@ public class TaskCellController extends ListCell<Task> {
                 }
             }
             int taskId = task.getTaskID();
-
             taskLabel.setText(task.getTitle());
             dateLabel.setText(task.getDue_date());
             descriptionLabel.setText(task.getDetails());
 
             setText(null);
             setGraphic(rootAnchorPane);
-
 
             DoneBox.setOnMouseClicked(event -> {
                 db.deleteTask(AddTasksController.userID,taskId);

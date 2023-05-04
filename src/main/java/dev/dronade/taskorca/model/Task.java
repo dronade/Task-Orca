@@ -3,6 +3,11 @@ package dev.dronade.taskorca.model;
 
 import java.sql.Timestamp;
 
+/**
+ * @author Emily Canto
+ *  This Class is the model file that is responsible for defining what a task is.
+ */
+
 public class Task {
     private int userID;
     private int taskID;

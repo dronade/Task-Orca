@@ -16,6 +16,12 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+/**
+ * @author Emily Canto
+ *  This Class controls the 'LoginView'
+ *  It's mostly button events and detecting if a user is logged in or not.
+ */
+
 public class LoginController {
     private int userID;
 
@@ -51,11 +57,9 @@ public class LoginController {
             try {
                 while (userRow.next()){
                     counter ++;
-                    System.out.println("Welcome back " + userRow.getString("username") + "!");
                     userID = userRow.getInt("user_id");
                 }
                 if (counter == 1){
-                    // need to create if statement for if user has tasks or not
                     showAddTasks();
                     System.out.println("user is logged in");
                 }

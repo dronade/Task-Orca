@@ -1,7 +1,11 @@
 package dev.dronade.taskorca.model;
 
+/**
+ * @author Emily Canto
+ *  This Class is the model file that is responsible for defining what a user is
+ */
+
 public class User {
-    //TODO: add user_id
     private String username;
     private String password;
 

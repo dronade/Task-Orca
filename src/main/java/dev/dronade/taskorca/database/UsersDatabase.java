@@ -1,5 +1,4 @@
 package dev.dronade.taskorca.database;
-import dev.dronade.taskorca.model.Task;
 import dev.dronade.taskorca.model.User;
 
 import java.sql.*;
@@ -7,17 +6,17 @@ import java.sql.*;
 import static java.sql.DriverManager.getConnection;
 
 /**
- * Class for adding and fetching URLs from a database.
  * @author Emily Canto
+ * Class for adding and fetching Users from a database.
  */
 public class UsersDatabase {
     private static final String DATABASE_FILE = "jdbc:sqlite:users.db";
-    //TODO: set user_id
-    private static final String CREATE_TABLE_STATEMENT = "CREATE TABLE IF NOT EXISTS USERS (\n"
-            + " user_id integer PRIMARY KEY,\n"
-            + "	username text NOT NULL,\n"
-            + "	password text\n"
-            + ");";
+    private static final String CREATE_TABLE_STATEMENT = """
+            CREATE TABLE IF NOT EXISTS USERS (
+                user_id integer PRIMARY KEY,
+            	username text NOT NULL,
+            	password text
+            );""";
 
     public UsersDatabase() {
     }
@@ -27,7 +26,7 @@ public class UsersDatabase {
      */
     public void createDatabase() {
         try {
-            getConnection(DATABASE_FILE); // create a new database if it does not exist already
+            getConnection(DATABASE_FILE);
         } catch (SQLException error) {
             System.err.println("create" + error.getMessage());
         }

@@ -7,8 +7,13 @@ import javafx.scene.control.*;
 
 import java.util.Calendar;
 
+/**
+ * @author Emily Canto
+ *  This Class controls the 'AddTasksFormView'
+ *  This field deals with the data entry of creating tasks.
+ */
+
 public class AddTasksFormController {
-    //TODO: make naming scheme consistent
 
     private TaskDatabase taskDatabase;
     private int userID;
@@ -23,22 +28,10 @@ public class AddTasksFormController {
     private DatePicker DueDateInput;
 
     @FXML
-    private Label TaskTitleLabel;
-
-    @FXML
-    private Label AdditionalDetailsLabel;
-
-    @FXML
-    private Label DueDateLabel;
-
-    @FXML
     private Button CreateTaskButton;
 
     @FXML
     private Label SuccessTaskLabel;
-
-    @FXML
-    private Label FolderLabel;
 
     @FXML
     private ChoiceBox<String> FolderSelection;

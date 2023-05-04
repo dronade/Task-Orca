@@ -23,6 +23,12 @@ import java.text.SimpleDateFormat;
 import java.util.Comparator;
 import java.util.Date;
 
+/**
+ * @author Emily Canto
+ *  This Class controls the 'ListView'
+ *  It deals with the display & sorting of the tiered list.
+ */
+
 public class ListController {
 
     @FXML

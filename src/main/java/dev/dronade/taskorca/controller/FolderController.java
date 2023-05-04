@@ -9,16 +9,20 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuButton;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.ResultSet;
+
+/**
+ * @author Emily Canto
+ *  This Class controls the 'FolderView'
+ *  It needs to be refactored heavily (future work) but essentially deals with input to the tree structure list
+ */
 
 public class FolderController {
 
@@ -33,9 +37,6 @@ public class FolderController {
 
     @FXML
     private TreeView<String> TaskTreeView;
-
-    // This file needs to be heavily refactored but fear I won't have time before my dissertation is due...
-    // so for now, its stays :((
 
     private String folderName1 = "Study";
     private String folderName2 = "Work";

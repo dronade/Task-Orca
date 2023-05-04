@@ -15,6 +15,12 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * @author Emily Canto
+ *  This Class controls the 'SignUpView'
+ *  This class deals with the data entry of creating a user.
+ */
+
 public class SignUpController {
 
     @FXML
@@ -32,7 +38,6 @@ public class SignUpController {
     @FXML
     void initialize() {
         signUpLoginLink.setOnAction(event ->{
-//            signUpLoginLink.getScene().getWindow().hide();
             Stage stage = (Stage) signUpLoginLink.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(TaskOrcaApplication.class.getResource("LoginView.fxml"));
             Scene scene = null;
@@ -43,7 +48,6 @@ public class SignUpController {
             }
             stage.setScene(scene);
             stage.setTitle("Task Orca - Log In");
-//            stage.showAndWait();
         });
 
 
