@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="412.0" prefWidth="655.0" style="-fx-background-color: #535453;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.dronade.taskorca.controller.AddTasksFormController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="412.0" prefWidth="655.0" style="-fx-background-color: #535453;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.dronade.taskorca.controller.AddTasksFormController">
     <children>
           <AnchorPane layoutX="-1.0" prefHeight="411.0" prefWidth="669.0" style="-fx-background-color: #b5b6b7;">
          <children>
@@ -35,7 +31,7 @@
                   <Font name="Dubai Medium" size="14.0" />
                </font>
             </Button>
-            <Label fx:id="SuccessTaskLabel" layoutX="504.0" layoutY="12.0" text="Success: Task Added" textFill="#07861f" visible="false">
+            <Label fx:id="SuccessTaskLabel" layoutX="504.0" prefHeight="25.0" prefWidth="160.0" text="Success: Task Added" textFill="#07861f" visible="false">
                <font>
                   <Font size="14.0" />
                </font>
