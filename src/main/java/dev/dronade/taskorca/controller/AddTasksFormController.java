@@ -1,6 +1,6 @@
 package dev.dronade.taskorca.controller;
 
-import dev.dronade.taskorca.database.TaskDatabase;
+import dev.dronade.taskorca.database.TasksDatabase;
 import dev.dronade.taskorca.model.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -15,7 +15,7 @@ import java.util.Calendar;
 
 public class AddTasksFormController {
 
-    private TaskDatabase taskDatabase;
+    private TasksDatabase taskDatabase;
     private int userID;
 
     @FXML
@@ -40,7 +40,7 @@ public class AddTasksFormController {
     @FXML
     void initialize() {
 
-        taskDatabase = new TaskDatabase();
+        taskDatabase = new TasksDatabase();
         Task task = new Task();
 
         // I'm aware this is hardcoded & not great, but time constraints ¯\_(ツ)_/¯

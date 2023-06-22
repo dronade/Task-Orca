@@ -2,7 +2,7 @@ package dev.dronade.taskorca.controller;
 
 
 import dev.dronade.taskorca.TaskOrcaApplication;
-import dev.dronade.taskorca.database.TaskDatabase;
+import dev.dronade.taskorca.database.TasksDatabase;
 import dev.dronade.taskorca.model.Task;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -51,7 +51,7 @@ public class ListController {
 
     private ObservableList<Task> tasks = FXCollections.observableArrayList();
 
-    private TaskDatabase databaseHandler;
+    private TasksDatabase databaseHandler;
 
     public void initialize() {
         TaskListView.setItems(tasks);
@@ -112,7 +112,7 @@ public class ListController {
         javafx.concurrent.Task<Void> task = new javafx.concurrent.Task<>() {
             @Override
             protected Void call() throws Exception {
-                databaseHandler = new TaskDatabase();
+                databaseHandler = new TasksDatabase();
                 ResultSet resultSet = databaseHandler.getTasksByUserID(AddTasksController.userID);
                 while (resultSet.next()) {
                     Task task = new Task();

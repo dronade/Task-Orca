@@ -1,7 +1,7 @@
 package dev.dronade.taskorca.controller;
 
 import dev.dronade.taskorca.TaskOrcaApplication;
-import dev.dronade.taskorca.database.TaskDatabase;
+import dev.dronade.taskorca.database.TasksDatabase;
 import dev.dronade.taskorca.model.Task;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -44,7 +44,7 @@ public class FolderController {
     private String folderName4 = "Appointments";
     private String folderName5 = "Other";
 
-    private TaskDatabase databaseHandler;
+    private TasksDatabase databaseHandler;
     private ObservableList<Task> folder1 = FXCollections.observableArrayList();
     private ObservableList<Task> folder2 = FXCollections.observableArrayList();
     private ObservableList<Task> folder3 = FXCollections.observableArrayList();
@@ -117,7 +117,7 @@ public class FolderController {
         javafx.concurrent.Task<Void> task = new javafx.concurrent.Task<>() {
             @Override
             protected Void call() throws Exception {
-                databaseHandler = new TaskDatabase();
+                databaseHandler = new TasksDatabase();
                 ResultSet resultSet = databaseHandler.getTasksByFolder(folderName1);
                 while (resultSet.next()) {
                     Task task = new Task();
@@ -143,7 +143,7 @@ public class FolderController {
         javafx.concurrent.Task<Void> task = new javafx.concurrent.Task<>() {
             @Override
             protected Void call() throws Exception {
-                databaseHandler = new TaskDatabase();
+                databaseHandler = new TasksDatabase();
                 ResultSet resultSet = databaseHandler.getTasksByFolder(folderName2);
                 while (resultSet.next()) {
                     Task task = new Task();
@@ -168,7 +168,7 @@ public class FolderController {
         javafx.concurrent.Task<Void> task = new javafx.concurrent.Task<>() {
             @Override
             protected Void call() throws Exception {
-                databaseHandler = new TaskDatabase();
+                databaseHandler = new TasksDatabase();
                 ResultSet resultSet = databaseHandler.getTasksByFolder(folderName3);
                 while (resultSet.next()) {
                     Task task = new Task();
@@ -193,7 +193,7 @@ public class FolderController {
         javafx.concurrent.Task<Void> task = new javafx.concurrent.Task<>() {
             @Override
             protected Void call() throws Exception {
-                databaseHandler = new TaskDatabase();
+                databaseHandler = new TasksDatabase();
                 ResultSet resultSet = databaseHandler.getTasksByFolder(folderName4);
                 while (resultSet.next()) {
                     Task task = new Task();
@@ -218,7 +218,7 @@ public class FolderController {
         javafx.concurrent.Task<Void> task = new javafx.concurrent.Task<>() {
             @Override
             protected Void call() throws Exception {
-                databaseHandler = new TaskDatabase();
+                databaseHandler = new TasksDatabase();
                 ResultSet resultSet = databaseHandler.getTasksByFolder(folderName5);
                 while (resultSet.next()) {
                     Task task = new Task();

@@ -7,8 +7,9 @@ import static java.sql.DriverManager.getConnection;
 
 /**
  * @author Emily Canto
- * Class for adding and fetching Users from a database.
+ * Class for creating the users database + performing crud on it.
  */
+
 public class UsersDatabase {
     private static final String DATABASE_FILE = "jdbc:sqlite:users.db";
     private static final String CREATE_TABLE_STATEMENT = """
@@ -21,9 +22,7 @@ public class UsersDatabase {
     public UsersDatabase() {
     }
 
-    /**
-     * Create the database to store Tasks in if it has not been created already.
-     */
+    // Create the database to store Tasks in if it has not been created already.
     public void createDatabase() {
         try {
             getConnection(DATABASE_FILE);
@@ -32,9 +31,7 @@ public class UsersDatabase {
         }
     }
 
-    /**
-     * Setup the table inside the database.
-     */
+    // Set up the table inside the database.
     public void setupDatabase() {
         try {
             Connection conn = getConnection(DATABASE_FILE);

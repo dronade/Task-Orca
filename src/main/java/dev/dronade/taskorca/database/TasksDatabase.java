@@ -7,10 +7,10 @@ import static java.sql.DriverManager.getConnection;
 
 /**
  * @author Emily Canto
- * Class for adding and fetching Tasks from a database.
+ * Class for creating the tasks database + performing crud on it.
  */
 
-public class TaskDatabase {
+public class TasksDatabase {
     private static final String DATABASE_FILE = "jdbc:sqlite:tasks.db";
     private static final String CREATE_TABLE_STATEMENT = """
             CREATE TABLE IF NOT EXISTS TASKS (
@@ -22,10 +22,9 @@ public class TaskDatabase {
             	created_at text NOT NULL
             );""";
 
-    public TaskDatabase() {}
-    /**
-     * Create the database to store Tasks in if it has not been created already.
-     */
+    public TasksDatabase() {}
+
+    // Create the database to store Tasks in if it has not been created already.
     public void createDatabase() {
         try {
             Connection conn = DriverManager.getConnection(DATABASE_FILE);
@@ -35,9 +34,7 @@ public class TaskDatabase {
         }
     }
 
-    /**
-     * Setup the table inside the database.
-     */
+    // Set up the table inside the database.
     public void setupDatabase() {
         try {
             Connection conn = DriverManager.getConnection(DATABASE_FILE);

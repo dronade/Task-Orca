@@ -1,7 +1,7 @@
 package dev.dronade.taskorca.controller;
 
 import dev.dronade.taskorca.TaskOrcaApplication;
-import dev.dronade.taskorca.database.TaskDatabase;
+import dev.dronade.taskorca.database.TasksDatabase;
 import dev.dronade.taskorca.model.Task;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -41,7 +41,7 @@ public class TaskCellController extends ListCell<Task> {
     private CheckBox DoneBox;
 
     private FXMLLoader fxmlLoader;
-    private TaskDatabase db;
+    private TasksDatabase db;
 
     public TaskCellController() {
         setOnDragDetected(event -> {
@@ -105,7 +105,7 @@ public class TaskCellController extends ListCell<Task> {
 
     @Override
     public void updateItem(Task task, boolean empty) {
-        db = new TaskDatabase();
+        db = new TasksDatabase();
         super.updateItem(task, empty);
 
         if (empty || task == null) {
