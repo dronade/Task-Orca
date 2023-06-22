@@ -17,7 +17,7 @@ public class FoldersDatabase {
 
     public FoldersDatabase() {}
 
-    // Create the database to store Tasks in if it has not been created already.
+    // Create the database to store Folders in if it has not been created already.
     public void createDatabase() {
         try {
             Connection conn = DriverManager.getConnection(DATABASE_FILE);

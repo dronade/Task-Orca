@@ -10,11 +10,17 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class TaskOrcaApplication extends Application {
+/**
+ * @author Emily Canto
+ *  Main class for starting the task orca application.
+ */
+
+public class TaskOrca extends Application {
 
     private final TasksDatabase tasksDatabase = new TasksDatabase();
     private final UsersDatabase usersDatabase = new UsersDatabase();
     private final FoldersDatabase foldersDatabase = new FoldersDatabase();
+    
     @Override
     public void start(Stage stage) throws IOException {
         usersDatabase.createDatabase();
@@ -24,7 +30,8 @@ public class TaskOrcaApplication extends Application {
         foldersDatabase.createDatabase();
         foldersDatabase.setupDatabase();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(TaskOrcaApplication.class.getResource("LoginView.fxml"));
+        // Defaults to login page.
+        FXMLLoader fxmlLoader = new FXMLLoader(TaskOrca.class.getResource("LoginView.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load(), 700, 500);
         stage.setScene(scene);

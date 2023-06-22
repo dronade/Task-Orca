@@ -22,7 +22,7 @@ public class UsersDatabase {
     public UsersDatabase() {
     }
 
-    // Create the database to store Tasks in if it has not been created already.
+    // Create the database to store Users in if it has not been created already.
     public void createDatabase() {
         try {
             getConnection(DATABASE_FILE);

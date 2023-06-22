@@ -1,6 +1,6 @@
 package dev.dronade.taskorca.controller;
 
-import dev.dronade.taskorca.TaskOrcaApplication;
+import dev.dronade.taskorca.TaskOrca;
 import dev.dronade.taskorca.database.TasksDatabase;
 import dev.dronade.taskorca.model.Task;
 import javafx.collections.ObservableList;
@@ -113,7 +113,7 @@ public class TaskCellController extends ListCell<Task> {
             setGraphic(null);
         } else {
             if (fxmlLoader == null) {
-                fxmlLoader = new FXMLLoader(TaskOrcaApplication.class.getResource("TaskCell.fxml"));
+                fxmlLoader = new FXMLLoader(TaskOrca.class.getResource("TaskCell.fxml"));
                 fxmlLoader.setController(this);
                 try {
                     fxmlLoader.load();

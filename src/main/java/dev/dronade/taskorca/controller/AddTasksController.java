@@ -1,6 +1,6 @@
 package dev.dronade.taskorca.controller;
 
-import dev.dronade.taskorca.TaskOrcaApplication;
+import dev.dronade.taskorca.TaskOrca;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -48,7 +48,7 @@ public class AddTasksController {
 
             try {
                 AnchorPane AddTaskPane =
-                        FXMLLoader.load((Objects.requireNonNull(TaskOrcaApplication.class.getResource("AddTasksFormView.fxml"))));
+                        FXMLLoader.load((Objects.requireNonNull(TaskOrca.class.getResource("AddTasksFormView.fxml"))));
 
                 AddTasksFormController addTasksFormController = new AddTasksFormController();
                 addTasksFormController.setUserID(getUserID());
@@ -62,7 +62,7 @@ public class AddTasksController {
 
         AddTaskListLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             Stage stage = (Stage) AddTaskListLabel.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(TaskOrcaApplication.class.getResource("ListView.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(TaskOrca.class.getResource("ListView.fxml"));
             Scene scene = null;
             try {
                 scene = new Scene(fxmlLoader.load(), 700, 500);
@@ -75,7 +75,7 @@ public class AddTasksController {
 
         AddTaskFolderLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             Stage stage = (Stage) AddTaskFolderLabel.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(TaskOrcaApplication.class.getResource("FolderView.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(TaskOrca.class.getResource("FolderView.fxml"));
             Scene scene = null;
             try {
                 scene = new Scene(fxmlLoader.load(), 700, 500);

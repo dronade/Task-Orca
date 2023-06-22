@@ -1,6 +1,6 @@
 package dev.dronade.taskorca.controller;
 
-import dev.dronade.taskorca.TaskOrcaApplication;
+import dev.dronade.taskorca.TaskOrca;
 import dev.dronade.taskorca.database.UsersDatabase;
 import dev.dronade.taskorca.model.User;
 import javafx.fxml.FXML;
@@ -39,7 +39,7 @@ public class SignUpController {
     void initialize() {
         signUpLoginLink.setOnAction(event ->{
             Stage stage = (Stage) signUpLoginLink.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(TaskOrcaApplication.class.getResource("LoginView.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(TaskOrca.class.getResource("LoginView.fxml"));
             Scene scene = null;
             try {
                 scene = new Scene(fxmlLoader.load(), 700, 500);

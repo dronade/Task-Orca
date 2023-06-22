@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import dev.dronade.taskorca.TaskOrcaApplication;
+import dev.dronade.taskorca.TaskOrca;
 import dev.dronade.taskorca.database.UsersDatabase;
 import dev.dronade.taskorca.model.User;
 import javafx.fxml.FXML;
@@ -70,7 +70,7 @@ public class LoginController {
 
         loginSignUpLink.setOnAction(event ->{
             Stage stage = (Stage) loginSignUpLink.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(TaskOrcaApplication.class.getResource("SignUpView.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(TaskOrca.class.getResource("SignUpView.fxml"));
             Scene scene = null;
             try {
                 scene = new Scene(fxmlLoader.load(), 700, 500);
@@ -84,7 +84,7 @@ public class LoginController {
 
     private void showAddTasks(){
         Stage stage = (Stage) loginSignUpLink.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(TaskOrcaApplication.class.getResource("AddTasksView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(TaskOrca.class.getResource("AddTasksView.fxml"));
         Scene scene = null;
         try {
             scene = new Scene(fxmlLoader.load(), 700, 500);
