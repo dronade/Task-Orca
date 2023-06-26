@@ -19,16 +19,51 @@
                 <CubicCurve controlX1="189.0179443359375" controlX2="-45.982025146484375" controlY1="-89.0" controlY2="-4.0" endX="-173.98202514648438" endY="84.0" fill="DODGERBLUE" layoutX="494.0" layoutY="358.0" startX="206.0" startY="84.0" stroke="BLACK" style="-fx-fill: #f3f3f7;" />
                 <AnchorPane fx:id="GreyBox" layoutX="18.0" layoutY="31.0" prefHeight="397.0" prefWidth="667.0" style="-fx-background-color: #b5b6b7;">
                <children>
-                  <TreeView fx:id="TaskTreeView" prefHeight="397.0" prefWidth="667.0" />
+                  <TreeView fx:id="TaskTreeView" layoutX="7.0" layoutY="9.0" prefHeight="381.0" prefWidth="410.0" />
+                  <AnchorPane layoutX="423.0" layoutY="10.0" prefHeight="381.0" prefWidth="237.0" style="-fx-background-color: white;">
+                     <children>
+                        <Label fx:id="fvTaskTitleLabel" layoutX="11.0" layoutY="8.0" text="Task Title" underline="true">
+                           <font>
+                              <Font name="Dubai Medium" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="fvTaskCreatedLabel" layoutX="11.0" layoutY="53.0" text="Created At: ">
+                           <font>
+                              <Font name="Dubai Medium" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="fvTaskDueLabel" layoutX="13.0" layoutY="82.0" text="Due date: ">
+                           <font>
+                              <Font name="Dubai Medium" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="fvTaskDetailsLabel" layoutX="11.0" layoutY="124.0" text="Further Details:">
+                           <font>
+                              <Font name="Dubai Medium" size="15.0" />
+                           </font>
+                        </Label>
+                        <Line endX="147.0" endY="-133.0" layoutX="92.0" layoutY="181.0" startX="-91.99996948242188" startY="-133.0" />
+                        <Line endX="147.0" endY="-133.0" layoutX="92.0" layoutY="250.0" startX="-91.99996948242188" startY="-133.0" />
+                        <CheckBox fx:id="fvTaskDoneBox" layoutX="160.0" layoutY="346.0" mnemonicParsing="false" text="Done" textFill="#00901a">
+                           <font>
+                              <Font name="Dubai Medium" size="15.0" />
+                           </font>
+                        </CheckBox>
+                        <Label fx:id="fvEditTaskLabel" layoutX="208.0" layoutY="1.0" text="Edit" underline="true">
+                           <font>
+                              <Font name="Dubai Medium" size="14.0" />
+                           </font>
+                        </Label>
+                     </children></AnchorPane>
                </children></AnchorPane>
               <ImageView fx:id="AddTasksButtonFolder" fitHeight="25.0" fitWidth="24.0" layoutX="17.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                       <Image url="@assets/plus.png" />
                   </image>
               </ImageView>
-              <Label fx:id="AddTasksLabelFolder" layoutX="44.0" layoutY="5.0" prefHeight="17.0" prefWidth="69.0" text="Add Tasks">
+              <Label fx:id="AddTasksLabelFolder" layoutX="44.0" layoutY="3.0" prefHeight="17.0" prefWidth="69.0" text="Add Tasks">
                   <font>
-                      <Font name="Dubai Medium" size="12.0" />
+                      <Font name="Dubai Medium" size="14.0" />
                   </font>
               </Label>
             </children></AnchorPane>
@@ -42,7 +77,7 @@
                 <Font name="Dubai Medium" size="24.0" />
             </font>
         </Label>
-        <Label fx:id="SettingsLabel" layoutX="430.0" layoutY="7.0" prefHeight="46.0" prefWidth="99.0" text="Settings">
+        <Label fx:id="folderCalanderLabel" layoutX="430.0" layoutY="7.0" prefHeight="46.0" prefWidth="99.0" text="Calendar">
             <font>
                 <Font name="Dubai Medium" size="24.0" />
             </font>
@@ -52,5 +87,10 @@
                 <Image url="@assets/orca.png" />
             </image>
         </ImageView>
+      <ImageView fx:id="menuIcon" fitHeight="28.0" fitWidth="40.0" layoutX="658.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+          <image>
+              <Image url="@assets/menu.png" />
+          </image>
+      </ImageView>
     </children>
 </AnchorPane>

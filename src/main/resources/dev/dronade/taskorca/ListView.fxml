@@ -48,7 +48,7 @@
             <Font name="Dubai Medium" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="SettingsLabel" layoutX="430.0" layoutY="7.0" prefHeight="46.0" prefWidth="99.0" text="Settings">
+      <Label fx:id="ListCalendarLabel" layoutX="430.0" layoutY="7.0" prefHeight="46.0" prefWidth="99.0" text="Calendar">
          <font>
             <Font name="Dubai Medium" size="24.0" />
          </font>
@@ -56,6 +56,11 @@
         <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="125.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@assets/orca.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="menuIcon" fitHeight="28.0" fitWidth="40.0" layoutX="658.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@assets/menu.png" />
             </image>
         </ImageView>
     </children>

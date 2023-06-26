@@ -20,7 +20,7 @@ public class TaskOrca extends Application {
     private final TasksDatabase tasksDatabase = new TasksDatabase();
     private final UsersDatabase usersDatabase = new UsersDatabase();
     private final FoldersDatabase foldersDatabase = new FoldersDatabase();
-    
+
     @Override
     public void start(Stage stage) throws IOException {
         usersDatabase.createDatabase();

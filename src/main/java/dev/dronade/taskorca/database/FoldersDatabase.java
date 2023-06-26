@@ -3,7 +3,7 @@ import java.sql.*;
 
 /**
  * @author Emily Canto
- * Class for creating the folders database.
+ * Class for creating the folders' database.
  */
 
 public class FoldersDatabase {
@@ -12,7 +12,7 @@ public class FoldersDatabase {
             CREATE TABLE IF NOT EXISTS FOLDERS (
              	name text NOT NULL,
             	parent integer NOT NULL,
-            	user_id integer NOT NULL,
+            	user_id integer NOT NULL
             );""";
 
     public FoldersDatabase() {}
