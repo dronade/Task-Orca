@@ -32,13 +32,13 @@ public class AddTasksController {
     private Label AddTasksLabel;
 
     @FXML
-    private Label AddTaskListLabel;
+    private Label ListLabel;
 
     @FXML
-    private Label AddTaskFolderLabel;
+    private Label FolderLabel;
 
     @FXML
-    private Label AddTaskSettingsLabel;
+    private Label CalendarLabel;
 
     @FXML
     void initialize() {
@@ -60,8 +60,8 @@ public class AddTasksController {
             }
         });
 
-        AddTaskListLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            Stage stage = (Stage) AddTaskListLabel.getScene().getWindow();
+        ListLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            Stage stage = (Stage) ListLabel.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(TaskOrca.class.getResource("ListView.fxml"));
             Scene scene = null;
             try {
@@ -73,9 +73,22 @@ public class AddTasksController {
             stage.setTitle("Task Orca - List");
         });
 
-        AddTaskFolderLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            Stage stage = (Stage) AddTaskFolderLabel.getScene().getWindow();
+        FolderLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            Stage stage = (Stage) FolderLabel.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(TaskOrca.class.getResource("FolderView.fxml"));
+            Scene scene = null;
+            try {
+                scene = new Scene(fxmlLoader.load(), 700, 500);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            stage.setScene(scene);
+            stage.setTitle("Task Orca - Folders");
+        });
+
+        CalendarLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            Stage stage = (Stage) CalendarLabel.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader(TaskOrca.class.getResource("CalendarView.fxml"));
             Scene scene = null;
             try {
                 scene = new Scene(fxmlLoader.load(), 700, 500);

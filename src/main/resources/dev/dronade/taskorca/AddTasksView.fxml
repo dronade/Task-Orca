@@ -32,17 +32,17 @@
                     </children>
                 </AnchorPane>
             </children></AnchorPane>
-      <Label fx:id="AddTaskListLabel" layoutX="217.0" layoutY="7.0" prefHeight="46.0" prefWidth="59.0" text="List">
+      <Label fx:id="ListLabel" layoutX="217.0" layoutY="7.0" prefHeight="46.0" prefWidth="59.0" text="List">
          <font>
             <Font name="Dubai Medium" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="AddTaskFolderLabel" layoutX="312.0" layoutY="7.0" prefHeight="46.0" prefWidth="81.0" text="Folders">
+      <Label fx:id="FolderLabel" layoutX="312.0" layoutY="7.0" prefHeight="46.0" prefWidth="81.0" text="Folders">
          <font>
             <Font name="Dubai Medium" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="addTaskCalendarLabel" layoutX="430.0" layoutY="7.0" prefHeight="46.0" prefWidth="99.0" text="Calendar">
+      <Label fx:id="CalendarLabel" layoutX="430.0" layoutY="7.0" prefHeight="46.0" prefWidth="99.0" text="Calendar">
          <font>
             <Font name="Dubai Medium" size="24.0" />
          </font>

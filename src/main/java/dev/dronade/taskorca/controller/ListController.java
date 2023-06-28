@@ -44,6 +44,9 @@ public class ListController {
     private Label FolderLabel;
 
     @FXML
+    private Label CalendarLabel;
+
+    @FXML
     private Label AddTasksLabelList;
 
     @FXML
@@ -69,6 +72,19 @@ public class ListController {
             }
             stage.setScene(scene);
             stage.setTitle("Task Orca - Folders");
+        });
+
+        CalendarLabel.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            Stage stage = (Stage) CalendarLabel.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader(TaskOrca.class.getResource("CalendarView.fxml"));
+            Scene scene = null;
+            try {
+                scene = new Scene(fxmlLoader.load(), 700, 500);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            stage.setScene(scene);
+            stage.setTitle("Task Orca - Calendar");
         });
 
         AddTasksButtonList.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {

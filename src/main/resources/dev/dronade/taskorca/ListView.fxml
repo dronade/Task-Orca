@@ -48,7 +48,7 @@
             <Font name="Dubai Medium" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="ListCalendarLabel" layoutX="430.0" layoutY="7.0" prefHeight="46.0" prefWidth="99.0" text="Calendar">
+      <Label fx:id="CalendarLabel" layoutX="430.0" layoutY="7.0" prefHeight="46.0" prefWidth="99.0" text="Calendar">
          <font>
             <Font name="Dubai Medium" size="24.0" />
          </font>
